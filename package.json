@@ -128,5 +128,30 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/atsistemas/vue-base"
+  },
+  "bugs": {
+    "url": "https://github.com/atsistemas/vue-base/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "vue-router",
+    "redux",
+    "revue",
+    "starter",
+    "starterKit",
+    "seed",
+    "isomorphic",
+    "universal",
+    "postcss",
+    "css-modules",
+    "webpack2",
+    "testing",
+    "yeoman",
+    "istambul"
   ]
 }
