@@ -1,3 +1,4 @@
+/*
 import { match } from 'react-router';
 
 import routes from '../../src/base/routes';
@@ -31,4 +32,22 @@ export default function routingMiddleware(req, res, next) {
       .then( page => res.status(200).send(page) )
       .catch( err => res.end(err.message) );
   });
+}
+*/
+
+import * as express from 'express';
+
+import { routes } from './';
+import { console } from 'base';
+import renderPage from '../templates/';
+
+export default function applyServerRouting(app) {
+
+  const page = renderPage();
+  app.use((req, res, next) => {
+    res.status(200).send(page);
+    return;
+  });
+
+  console.success(`Routing up`);
 }
