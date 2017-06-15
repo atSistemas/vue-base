@@ -23,27 +23,7 @@ export const output = {
 };
 
 export const module = {
-  rules: [
-    {
-      test: /\.vue$/,
-      loader: 'vue-loader',
-    },
-    {
-      test: /\.js$/,
-      loader: 'babel-loader',
-      include: [
-        common.resolvePath('src'),
-      ],
-      exclude: [/node_modules/, /dist/, /assets/],
- 
-    },
-    {
-      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-      },
-    },
+  rules: common.module.rules.concat([
     {
       test: /\.css$/,
       exclude: /node_modules/,
@@ -67,7 +47,7 @@ export const module = {
         },
       ],
     },
-  ],
+  ])
 };
 
 export const plugins = [

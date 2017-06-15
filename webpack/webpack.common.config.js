@@ -13,6 +13,8 @@ export const dllPath = path.resolve(__dirname, '../dist/dlls');
 export const clientPath = path.resolve(__dirname, '../src/base/client/');
 export const manifestPath = buildPath;
 
+export const resolvePath = dir => path.join(__dirname, '..', dir);
+
 export const entry = {
   vendor: [
     'vue',
@@ -37,6 +39,31 @@ export const plugins = [
   new baseWpPlugins.compileInfoPlugin(),
 ];
 
+export const module = {
+  rules: [
+    {
+      test: /\.vue$/,
+      loader: 'vue-loader',
+    },
+    {
+      test: /\.js$/,
+      loader: 'babel-loader',
+      include: [
+        resolvePath('src'),
+      ],
+      exclude: [/node_modules/, /dist/, /assets/],
+ 
+    },
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url-loader',
+      options: {
+        limit: 10000,
+      },
+    },
+  ]
+};
+
 export const postcss = [
   require('postcss-import')({ addDependencyTo: webpack }),
   require('postcss-modules-extract-imports'),
@@ -56,9 +83,4 @@ export const resolve = {
     'containers': path.resolve(__dirname, '../src/app/containers'),
     'components': path.resolve(__dirname, '../src/app/components'),
   }
-};
-
-
-export const resolvePath = (dir) => {
-  return path.join(__dirname, '..', dir);
 };

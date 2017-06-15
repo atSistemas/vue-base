@@ -1,6 +1,9 @@
 import webpack from 'webpack';
 import copyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CommonsChunkPlugin from 'webpack/lib/optimize/CommonsChunkPlugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import * as common from './webpack.common.config';
 
@@ -24,49 +27,54 @@ export const output = {
 
 
 export const module = {
-  rules: [
-    {
-      test: [/\.jsx?$/],
-      include: [/src/],
-      loader: 'babel-loader',
-      exclude: [/node_modules/, /dist/, /server/],
-      query: {
-        cacheDirectory: true,
-        presets: ['es2015', 'stage-0', 'react']
-      }
-    },
+  rules: common.module.rules.concat([
     {
       test: /\.css/,
       exclude: /node_modules/,
-     
-    use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 1,
-                localIdentName: '[name]__[local]-[hash:base64:4]'
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: (loader) => common.postcss
-              }
-            }
-          ]
-       })
-    }
-  ]
+    },
+    {
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract({
+        fallback: ['style-loader'],
+        use: ['css-loader?-importLoaders=1&minimize=true&sourceMap=true']
+      }),
+    },
+  ])
 };
 
 export const plugins = [
   new webpack.DefinePlugin({'process.env': { NODE_ENV: JSON.stringify('production')}}),
   new copyWebpackPlugin([{ from: 'src/app/assets', to: '../dist/assets' }]),
   new webpack.NoEmitOnErrorsPlugin(),
-  new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
-  new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true })
-]
-.concat(common.plugins);
+  new CommonsChunkPlugin({
+    name: 'vendor',
+    chunks: ['app'],
+    minChunks: module => /node_modules/.test(module.resource)
+  }),
+  new HtmlWebpackPlugin({
+    inject: 'body',
+    title: 'Base App',
+    filename: 'index.html',
+    template: 'server/templates/index.ejs',
+    chunks: ['vendor', 'app'],
+    //FIXME
+    chunksSortMode: function (a, b) {
+      const order = ['vendor', 'app'];
+      if (order.indexOf(a.names[0]) > order.indexOf(b.names[0])) {
+        return 1;
+      }
+      if (order.indexOf(a.names[0]) < order.indexOf(b.names[0])) {
+        return -1;
+      }
+      return 0;
+    }
+  }),
+  new CopyWebpackPlugin([{ from: 'src/app/assets', to: 'assets' }]),
+  new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
+  /*new webpack.optimize.UglifyJsPlugin(
+    {compressor: { warnings: false, screw_ie8 : true },
+      output: {comments: false, beautify: false },
+      mangle: { screw_ie8 : true }
+    }),*/
+  new webpack.NoEmitOnErrorsPlugin()
+].concat(common.plugins);
