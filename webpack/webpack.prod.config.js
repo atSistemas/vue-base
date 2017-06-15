@@ -1,9 +1,11 @@
+import path from 'path';
 import webpack from 'webpack';
 import copyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CommonsChunkPlugin from 'webpack/lib/optimize/CommonsChunkPlugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import BabiliPlugin from 'babili-webpack-plugin';
 
 import * as common from './webpack.common.config';
 
@@ -44,8 +46,10 @@ export const module = {
 
 export const plugins = [
   new webpack.DefinePlugin({'process.env': { NODE_ENV: JSON.stringify('production')}}),
-  new copyWebpackPlugin([{ from: 'src/app/assets', to: '../dist/assets' }]),
-  new webpack.NoEmitOnErrorsPlugin(),
+  new webpack.DllReferencePlugin({
+    context: path.join(__dirname),
+    manifest: require(`${common.dllPath}/vendor-manifest.json`)
+  }),
   new CommonsChunkPlugin({
     name: 'vendor',
     chunks: ['app'],
@@ -71,10 +75,8 @@ export const plugins = [
   }),
   new CopyWebpackPlugin([{ from: 'src/app/assets', to: 'assets' }]),
   new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
-  /*new webpack.optimize.UglifyJsPlugin(
-    {compressor: { warnings: false, screw_ie8 : true },
-      output: {comments: false, beautify: false },
-      mangle: { screw_ie8 : true }
-    }),*/
+  new BabiliPlugin({}, {
+    comments: false
+  }),
   new webpack.NoEmitOnErrorsPlugin()
 ].concat(common.plugins);
