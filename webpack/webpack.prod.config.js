@@ -5,14 +5,13 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CommonsChunkPlugin from 'webpack/lib/optimize/CommonsChunkPlugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import BabiliPlugin from 'babili-webpack-plugin';
-
 import * as common from './webpack.common.config';
 
 export const cache = true;
 export const devtool = 'cheap-module-source-map';
 export const context = common.context;
 export const resolve = common.resolve;
+
 export const entry = {
   app: common.clientPath,
   vendor: common.entry.vendor
@@ -26,7 +25,6 @@ export const output = {
   sourceMapFilename: '[name].map',
   chunkFilename: '[name].[hash].chunk.js',
 };
-
 
 export const module = {
   rules: common.module.rules.concat([
@@ -75,8 +73,12 @@ export const plugins = [
   }),
   new CopyWebpackPlugin([{ from: 'src/app/assets', to: 'assets' }]),
   new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
-  new BabiliPlugin({}, {
-    comments: false
-  }),
+  //FIXME
+  /*
+  new webpack.optimize.UglifyJsPlugin(
+    { compressor: { warnings: false, screw_ie8 : true },
+    output: {comments: false, beautify: false},
+    mangle: { screw_ie8 : true }
+  }),*/
   new webpack.NoEmitOnErrorsPlugin()
 ].concat(common.plugins);
