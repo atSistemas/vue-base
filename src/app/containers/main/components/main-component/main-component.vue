@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import store from '@/base/store';
+import store from 'base/store';
 import * as mainActions from '../../actions';
 
 export default {
