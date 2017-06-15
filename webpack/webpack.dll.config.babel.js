@@ -1,7 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import AssetsPlugin from 'assets-webpack-plugin';
-import vueLoaderConfig from './vue-loader.conf';
 
 import * as common from './webpack.common.config';
 
@@ -25,7 +24,6 @@ export const module = {
       include: [/src/],
       loader: 'vue-loader',
       exclude: [/node_modules/, /dist/, /server/],
-      options: vueLoaderConfig,
     },
   ],
 };
@@ -41,4 +39,4 @@ export const plugins = [
     prettyPrint: true,
   }),
 ]
-.concat(common.plugins);
+  .concat(common.plugins);

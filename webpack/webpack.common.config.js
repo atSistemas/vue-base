@@ -57,3 +57,8 @@ export const resolve = {
     'components': path.resolve(__dirname, '../src/app/components'),
   }
 };
+
+
+export const resolvePath = (dir) => {
+  return path.join(__dirname, '..', dir);
+};
