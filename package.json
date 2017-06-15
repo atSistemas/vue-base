@@ -1,8 +1,22 @@
 {
-  "name": "vue-starter",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Jose Manuel Bermudo <josemanuelbd@gmail.com>",
+  "name": "VueBase",
+  "version": "0.9.6",
+  "description": "Vue Universal Redux Starterk Kit",
+  "author": "Pablo Magaz",
+  "contributors": [
+    {
+      "name": "Jose Manuel Bermudo",
+      "email": "jmbermudo@atsistemas.com"
+    },
+    {
+      "name": "Carlos Suazo",
+      "email": "csuazo@atsistemas.com"
+    },
+    {
+      "name": "Carlos Suazo",
+      "email": "csuazo@atsistemas.com"
+    }
+  ],
   "private": true,
   "scripts": {
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
@@ -123,7 +137,7 @@
     "webpack-merge": "^4.1.0"
   },
   "engines": {
-    "node": ">= 4.0.0",
+    "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
   "browserslist": [
