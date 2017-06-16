@@ -46,9 +46,9 @@
     "postinstall": "npm run generate:dll"
   },
   "dependencies": {
-    "babel-register": "^6.22.0",
     "babel-core": "^6.22.1",
     "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-register": "^6.22.0",
     "compression": "1.6.2",
     "cross-env": "^5.0.1",
     "css-modules-require-hook": "^4.0.6",
@@ -129,7 +129,7 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/atsistemas/vue-base"
   },
