@@ -1,11 +1,11 @@
-import MainActionTypes from '../action-types';
+import HomeActionTypes from '../action-types';
 
 export const mutations = {
-  [MainActionTypes.INCREMENT] (state, number) {
+  [HomeActionTypes.INCREMENT] (state, number) {
     state.counter = state.counter + parseInt(number);
   },
 
-  [MainActionTypes.DECREMENT] (state, number) {
+  [HomeActionTypes.DECREMENT] (state, number) {
     state.counter = state.counter - parseInt(number);
   }
 }

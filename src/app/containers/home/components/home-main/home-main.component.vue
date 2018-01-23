@@ -12,12 +12,11 @@
 
 <script>
 
-import * as mainActions from '../../actions';
-import MainActionTypes from '../../action-types';
+import HomeActionTypes from '../../action-types';
 import { mapState, mapGetters } from 'vuex';
 
 export default {
-  name: 'main-component',
+  name: 'home-main',
   computed: {
     ...mapGetters([
       'counter'
@@ -25,10 +24,10 @@ export default {
   },
   methods: {
     increment(number) {
-      this.$store.commit(MainActionTypes.INCREMENT, number);
+      this.$store.commit(HomeActionTypes.INCREMENT, number);
     },
     decrement(number) {
-      this.$store.commit(MainActionTypes.DECREMENT, number);
+      this.$store.commit(HomeActionTypes.DECREMENT, number);
     },
   },
   data () {
