@@ -16,7 +16,7 @@ export const manifestPath = buildPath;
 export const entry = {
   vendor: [
     'vue',
-    'revue',
+    'vuex',
     'redux',
     'immutable',
     'vue-router',

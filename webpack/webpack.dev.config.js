@@ -43,30 +43,7 @@ export const module = {
       options: {
         limit: 10000,
       },
-    },
-    {
-      test: /\.css$/,
-      exclude: /node_modules/,
-      use: [
-        {
-          loader: 'style-loader',
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            importLoaders: 1,
-            localIdentName: '[name]__[local]-[hash:base64:4]'
-          },
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            plugins: (loader) => common.postcss
-          },
-        },
-      ],
-    },
+    }
   ],
 };
 

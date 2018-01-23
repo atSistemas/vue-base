@@ -26,38 +26,27 @@ export const output = {
 export const module = {
   rules: [
     {
-      test: [/\.jsx?$/],
-      include: [/src/],
-      loader: 'babel-loader',
-      exclude: [/node_modules/, /dist/, /server/],
-      query: {
-        cacheDirectory: true,
-        presets: ['es2015', 'stage-0', 'react']
+      test: /\.vue$/,
+      loader: 'vue-loader',
+      options: {
+        // `vue-loader` options
       }
     },
     {
-      test: /\.css/,
-      exclude: /node_modules/,
-     
-    use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 1,
-                localIdentName: '[name]__[local]-[hash:base64:4]'
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: (loader) => common.postcss
-              }
-            }
-          ]
-       })
+      test: /\.js$/,
+      loader: 'babel-loader',
+      include: [
+        common.resolvePath('src'),
+      ],
+      exclude: [/node_modules/, /dist/, /assets/],
+ 
+    },
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url-loader',
+      options: {
+        limit: 10000,
+      },
     }
   ]
 };
