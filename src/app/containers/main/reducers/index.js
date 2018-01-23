@@ -1,22 +1,14 @@
-import MainActionTypes from '../action-types';
+import { getters } from '../getters';
+import { actions } from '../actions';
+import { mutations } from '../mutations';
 
-const initialState = {
+const state = {
   counter: 0,
 };
 
-export default function mainReducer(state = initialState, action) {
-  switch (action.type) {
-    case MainActionTypes.INCREMENT:
-      return Object.assign({}, state, {
-        counter: state.counter + action.payload,
-      });
-
-    case MainActionTypes.DECREMENT:
-      return Object.assign({}, state, {
-        counter: state.counter - action.payload,
-      });
-
-    default:
-      return state;
-  }
+export default {
+  state,
+  getters,
+  actions,
+  mutations
 }
