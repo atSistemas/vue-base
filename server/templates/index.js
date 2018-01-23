@@ -5,7 +5,6 @@ export default function renderPage() {
 
   const app = getScripts('app');
   const vendor = getScripts('vendor');
-  const style = (base.env === 'production') ? '<link rel="stylesheet" href="bundle.css">' : '';
 
   return `
   <!doctype html>
@@ -13,7 +12,6 @@ export default function renderPage() {
     <head>
       <title>Vue Base</title>
       <base href="/">
-      ${ style }
       ${ vendor }
     </head>
     <body>

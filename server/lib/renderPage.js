@@ -9,8 +9,7 @@ export default function renderPage(routeMatch, container, store){
     routeMatch: routeMatch,
     appScript: getScripts('app'),
     vendorScript: getScripts('vendor'),
-    state: JSON.stringify( store.getState()),
-    style: (base.env === 'production') ? '<link rel="stylesheet" href="/bundle.css">' : ''
+    state: JSON.stringify( store.getState())
   };
 
   const template = templates[routeMatch.substring(1)];

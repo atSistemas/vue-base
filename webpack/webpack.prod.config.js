@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import copyWebpackPlugin from 'copy-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import * as common from './webpack.common.config';
 
@@ -56,6 +55,5 @@ export const plugins = [
   new copyWebpackPlugin([{ from: 'src/app/assets', to: '../dist/assets' }]),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
-  new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true })
 ]
 .concat(common.plugins);
