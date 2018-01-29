@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import copyWebpackPlugin from 'copy-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import * as common from './webpack.common.config';
 
@@ -25,10 +26,34 @@ export const output = {
 export const module = {
   rules: [
     {
+      test: /\.css/,
+      exclude: /node_modules/,
+
+    use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                importLoaders: 1,
+                localIdentName: '[name]__[local]-[hash:base64:4]'
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: (loader) => common.postcss
+              }
+            }
+          ]
+       })
+    },
+    {
       test: /\.vue$/,
       loader: 'vue-loader',
       options: {
-        // `vue-loader` options
+        extractCSS: true
       }
     },
     {
@@ -38,7 +63,7 @@ export const module = {
         common.resolvePath('src'),
       ],
       exclude: [/node_modules/, /dist/, /assets/],
- 
+
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -55,5 +80,6 @@ export const plugins = [
   new copyWebpackPlugin([{ from: 'src/app/assets', to: '../dist/assets' }]),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
+  new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
 ]
 .concat(common.plugins);

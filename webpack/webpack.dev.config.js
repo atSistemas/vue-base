@@ -35,7 +35,7 @@ export const module = {
         common.resolvePath('src'),
       ],
       exclude: [/node_modules/, /dist/, /assets/],
- 
+
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
