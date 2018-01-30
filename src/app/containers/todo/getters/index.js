@@ -1,3 +1,3 @@
 export const getters = {
-  todos: state => state.counter
+  todos: state => state.todos
 };

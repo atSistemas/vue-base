@@ -11,26 +11,33 @@
     <p v-else>
       Aún no has añadido una tarea a la lista
     </p>
+    <button type="button" @click="clear()">Limpiar lista</button>
   </div>
 </template>
 
 <style scoped>
   ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
-
 </style>
 
 <script>
 import TodoItemComponent from '../todo-item/todo-item.component';
 import TodoActionTypes from '../../action-types';
-import { mapState, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'todo-list',
   props: ['todos'],
   components: {
     'todo-item': TodoItemComponent,
+  },
+  methods: {
+    ...mapActions([
+      'clear',
+    ]),
   }
 };
 </script>

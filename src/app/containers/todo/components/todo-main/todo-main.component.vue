@@ -1,7 +1,7 @@
 <template>
   <div>
-    <todo-list :todos="todos" />
     <todo-controls />
+    <todo-list :todos="todos" />
     <button type="button" @click="saveTodos(todos)">Guardar lista localmente</button>
   </div>
 </template>
@@ -9,14 +9,14 @@
 <script>
 import TodoControlsComponent from '../todo-controls/todo-controls.component';
 import TodoListComponent from '../todo-list/todo-list.component';
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'todo-main',
   computed: {
-    ...mapState({
-      todos: state => state.todo.todos
-    })
+    ...mapGetters([
+      'todos'
+    ])
   },
   methods: {
     ...mapActions([

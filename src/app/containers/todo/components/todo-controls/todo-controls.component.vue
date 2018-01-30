@@ -1,12 +1,12 @@
 <template>
   <div>
     <h2>Crear tarea</h2>
-    <form @submit.prevent="addTodo(content)">
+    <form @submit.prevent="handleAddTodo()">
       <div>
         <label for="content">Contenido:</label>
-        <input id="content" v-model="content">
+        <input ref="content" id="content" v-model="content">
+        <button type="submit">Crear</button>
       </div>
-      <button type="submit">Crear</button>
     </form>
   </div>
 </template>
@@ -19,14 +19,21 @@ import { uuidv4 } from './utils';
 export default {
   name: 'todo-controls',
   methods: {
-    addTodo(content) {
-      this.$store.commit(TodoActionTypes.ADD_TODO, { id: uuidv4(), content });
-    }
+    ...mapActions([
+      'addTodo',
+    ]),
+    handleAddTodo() {
+      const { content } = this;
+      const todo = { id: uuidv4(), content };
+      this.addTodo(todo);
+      this.content = '';
+      this.$refs.content.focus();
+    },
   },
   data () {
     return {
-      content: 'heello world',
+      content: '',
     };
-  }
+  },
 };
 </script>

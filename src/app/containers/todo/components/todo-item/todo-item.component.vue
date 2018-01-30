@@ -14,7 +14,7 @@ export default {
   props: ['todo'],
   methods: {
     removeTodo(todo) {
-      this.$store.commit(TodoActionTypes.REMOVE_TODO, todo.id);
+      this.$store.commit(TodoActionTypes.REMOVE_TODO, todo);
     }
   }
 };
