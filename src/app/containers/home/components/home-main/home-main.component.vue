@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div>
+      <router-link to="/todo">Tareas</router-link>
+    </div>
     <input type="number" v-model="number">
     <button @click="increment(number)">suma</button>
     <button @click="decrement(number)">resta</button>
@@ -7,7 +10,7 @@
     Contador: {{ counter }}
     </div>
   </div>
-  
+
 </template>
 
 <script>
