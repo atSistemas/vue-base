@@ -1,13 +1,24 @@
 {
-  "name": "vue-starter",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Jose Manuel Bermudo <josemanuelbd@gmail.com>",
+  "name": "VueBase",
+  "version": "0.9.6",
+  "description": "Vue Universal Redux Starterk Kit",
+  "author": "Pablo Magaz",
+  "contributors": [
+    {
+      "name": "Jose Manuel Bermudo",
+      "email": "jmbermudo@atsistemas.com"
+    },
+    {
+      "name": "Carlos Suazo",
+      "email": "csuazo@atsistemas.com"
+    },
+    {
+      "name": "Carlos Suazo",
+      "email": "csuazo@atsistemas.com"
+    }
+  ],
   "private": true,
   "scripts": {
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "e2e": "node test/e2e/runner.js",
-    "test2": "npm run unit && npm run e2e",
     "logo": "node ./src/base/conf/.react-base/logo.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
     "clean": "rimraf dist/ && npm run generate:dll",
@@ -106,7 +117,6 @@
     "postcss-url": "^7.0.0",
     "progress-bar-webpack-plugin": "^1.9.3",
     "rimraf": "^2.6.0",
-    "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
     "shelljs": "^0.8.1",
     "sinon": "^4.2.0",
@@ -123,12 +133,37 @@
     "webpack-merge": "^4.1.0"
   },
   "engines": {
-    "node": ">= 4.0.0",
+    "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atsistemas/vue-base"
+  },
+  "bugs": {
+    "url": "https://github.com/atsistemas/vue-base/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "vue-router",
+    "redux",
+    "revue",
+    "starter",
+    "starterKit",
+    "seed",
+    "isomorphic",
+    "universal",
+    "postcss",
+    "css-modules",
+    "webpack2",
+    "testing",
+    "yeoman",
+    "istambul"
   ]
 }
