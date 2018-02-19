@@ -6,7 +6,6 @@
     <div>
     Contador: {{ counter }}
     </div>
-    <router-link to="/lazy">Lazy load</router-link>
   </div>
 
 </template>
