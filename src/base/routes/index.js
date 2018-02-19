@@ -4,6 +4,8 @@ import HomeComponent from 'app/containers/home/components/home-main/home-main.co
 
 Vue.use(Router);
 
+const Lazy = () => import('containers/lazy/components/lazy-main/lazy-main.component');
+
 export default new Router({
   routes: [
     {
@@ -11,5 +13,11 @@ export default new Router({
       name: 'home',
       component: HomeComponent,
     },
+    {
+      path: '/lazy',
+      name: 'lazy',
+      component: Lazy,
+    },
   ],
 });
+
