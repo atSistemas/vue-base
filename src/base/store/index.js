@@ -1,10 +1,17 @@
 import Vue from 'vue';
-import Revue from 'revue';
-import { createStore } from 'redux';
+import Vuex from 'vuex';
+import createLogger from '../wp-plugins/logger';
 
-import baseReducers from '../reducers';
+import HomeReducer from '../../app/containers/home/reducers';
 
-const baseStore = createStore(baseReducers);
-const store = new Revue(Vue, baseStore);
+const debug = process.env.NODE_ENV !== 'production';
 
-export default store;
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+  modules: {
+    home: HomeReducer
+  },
+  strict: debug,
+  plugins: debug ? [createLogger()] : []
+});

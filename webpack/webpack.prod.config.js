@@ -27,58 +27,62 @@ export const output = {
 };
 
 export const module = {
-  rules: common.module.rules.concat([
+  rules: [
     {
       test: /\.css/,
       exclude: /node_modules/,
+
+    use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                importLoaders: 1,
+                localIdentName: '[name]__[local]-[hash:base64:4]'
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: (loader) => common.postcss
+              }
+            }
+          ]
+       })
     },
     {
-      test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        fallback: ['style-loader'],
-        use: ['css-loader?-importLoaders=1&minimize=true&sourceMap=true']
-      }),
+      test: /\.vue$/,
+      loader: 'vue-loader',
+      options: {
+        extractCSS: true
+      }
     },
-  ])
+    {
+      test: /\.js$/,
+      loader: 'babel-loader',
+      include: [
+        common.resolvePath('src'),
+      ],
+      exclude: [/node_modules/, /dist/, /assets/],
+
+    },
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url-loader',
+      options: {
+        limit: 10000,
+      },
+    }
+  ]
 };
 
 export const plugins = [
   new webpack.DefinePlugin({'process.env': { NODE_ENV: JSON.stringify('production')}}),
-  new webpack.DllReferencePlugin({
-    context: path.join(__dirname),
-    manifest: require(`${common.dllPath}/vendor-manifest.json`)
-  }),
-  new CommonsChunkPlugin({
-    name: 'vendor',
-    chunks: ['app'],
-    minChunks: module => /node_modules/.test(module.resource)
-  }),
-  new HtmlWebpackPlugin({
-    inject: 'body',
-    title: 'Base App',
-    filename: 'index.html',
-    template: 'server/templates/index.ejs',
-    chunks: ['vendor', 'app'],
-    //FIXME
-    chunksSortMode: function (a, b) {
-      const order = ['vendor', 'app'];
-      if (order.indexOf(a.names[0]) > order.indexOf(b.names[0])) {
-        return 1;
-      }
-      if (order.indexOf(a.names[0]) < order.indexOf(b.names[0])) {
-        return -1;
-      }
-      return 0;
-    }
-  }),
-  new CopyWebpackPlugin([{ from: 'src/app/assets', to: 'assets' }]),
+  new copyWebpackPlugin([{ from: 'src/app/assets', to: '../dist/assets' }]),
+  new webpack.NoEmitOnErrorsPlugin(),
+  new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
   new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
-  //FIXME
-  /*
-  new webpack.optimize.UglifyJsPlugin(
-    { compressor: { warnings: false, screw_ie8 : true },
-    output: {comments: false, beautify: false},
-    mangle: { screw_ie8 : true }
-  }),*/
-  new webpack.NoEmitOnErrorsPlugin()
-].concat(common.plugins);
+]
+.concat(common.plugins);

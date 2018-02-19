@@ -11,10 +11,10 @@ export default function renderPage() {
   <!doctype html>
 	<html lang="utf-8">
     <head>
-      <title>Angular2 Base</title>
+      <title>Vue Base</title>
       <base href="/">
-      ${ style }
       ${ vendor }
+      ${ style }
     </head>
     <body>
     <div id="app">

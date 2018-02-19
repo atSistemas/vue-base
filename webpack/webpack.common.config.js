@@ -18,7 +18,7 @@ export const resolvePath = dir => path.join(__dirname, '..', dir);
 export const entry = {
   vendor: [
     'vue',
-    'revue',
+    'vuex',
     'redux',
     'immutable',
     'vue-router',

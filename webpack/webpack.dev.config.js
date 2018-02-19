@@ -23,31 +23,28 @@ export const output = {
 };
 
 export const module = {
-  rules: common.module.rules.concat([
+  rules: [
     {
-      test: /\.css$/,
-      exclude: /node_modules/,
-      use: [
-        {
-          loader: 'style-loader',
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            importLoaders: 1,
-            localIdentName: '[name]__[local]-[hash:base64:4]'
-          },
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            plugins: (loader) => common.postcss
-          },
-        },
-      ],
+      test: /\.vue$/,
+      loader: 'vue-loader',
     },
-  ])
+    {
+      test: /\.js$/,
+      loader: 'babel-loader',
+      include: [
+        common.resolvePath('src'),
+      ],
+      exclude: [/node_modules/, /dist/, /assets/],
+
+    },
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url-loader',
+      options: {
+        limit: 10000,
+      },
+    }
+  ],
 };
 
 export const plugins = [
