@@ -1,13 +1,17 @@
+import path from 'path';
 import webpack from 'webpack';
 import copyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-
+import CommonsChunkPlugin from 'webpack/lib/optimize/CommonsChunkPlugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as common from './webpack.common.config';
 
 export const cache = true;
 export const devtool = 'cheap-module-source-map';
 export const context = common.context;
 export const resolve = common.resolve;
+
 export const entry = {
   app: common.clientPath,
   vendor: common.entry.vendor
@@ -21,7 +25,6 @@ export const output = {
   sourceMapFilename: '[name].map',
   chunkFilename: '[name].[hash].chunk.js',
 };
-
 
 export const module = {
   rules: [

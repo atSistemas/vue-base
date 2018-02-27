@@ -27,7 +27,7 @@ module.exports = {
     "import/no-named-as-default": 0,
     "import/prefer-default-export": 0,
     "comma-dangle": 0,
-    "indent": [2, 2, {"SwitchCase": 1}],
+    "indent": [2, 2, {"SwitchCase": 1}],    
     "no-console": 0,
     "no-alert": 0,
     "semi": 2,
@@ -35,6 +35,8 @@ module.exports = {
     "space-before-blocks": 2,
     "keyword-spacing": 2,
     "no-global-assign": 0,
-    "no-unsafe-negation": 0
+    "no-unsafe-negation": 0,
+    "linebreak-style": 0,
+    "no-use-before-define": 0
   }
 }
