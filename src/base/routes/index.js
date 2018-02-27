@@ -6,6 +6,8 @@ import TodoComponent from 'app/containers/todo/components/todo-main/todo-main.co
 
 Vue.use(Router);
 
+const Lazy = () => import('containers/lazy/components/lazy-main/lazy-main.component');
+
 export default new Router({
   routes: [
     {
@@ -25,3 +27,4 @@ export default new Router({
     },
   ],
 });
+

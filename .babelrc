@@ -9,12 +9,14 @@
   "env": {
     "development": {
       "plugins": [
-        [ "babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ]
+        ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
+        "syntax-dynamic-import"
       ]
     },
     "production": {
       "plugins": [
-        [ "babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ]
+        ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
+        "syntax-dynamic-import"
       ]
     }
   }
