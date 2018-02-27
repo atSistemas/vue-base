@@ -1,3 +1,3 @@
-import * as weather from './weather.filters';
+import * as weather from './weather.filters'
 
-export { weather };
+export { weather }

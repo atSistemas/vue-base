@@ -19,7 +19,6 @@ export const entry = {
   vendor: [
     'vue',
     'vuex',
-    'redux',
     'immutable',
     'vue-router',
   ],

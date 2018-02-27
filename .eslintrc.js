@@ -2,14 +2,21 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
-    sourceType: 'module'
+    "parser": "babel-eslint",
+    "ecmaVersion": 2017,
+    "sourceType": "module"
   },
   env: {
     browser: true,
   },
-  extends: 'airbnb-base',
+  "extends": [
+    'airbnb-base',
+    'eslint:recommended',
+    'plugin:vue/recommended',
+    'standard'
+  ],
   plugins: [
-    'html'
+    'vue'
   ],
   'rules': {
     'import/extensions': ['error', 'always', {

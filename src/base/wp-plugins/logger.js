@@ -1,6 +1,6 @@
 // Credits: borrowed code from fcomb/redux-logger
 
-import { deepCopy } from '../util/util';
+import { deepCopy } from '../util/util'
 
 export default function createLogger ({
   collapsed = true,

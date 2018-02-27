@@ -2,23 +2,14 @@ import express from 'express';
 
 import base from 'base/';
 import envConf from './enviroment';
+import httpServer from './httpServer';
 import applyStaticsPaths from './statics';
 import applyEnvMiddleWare from './middleware';
 import applyServerRouting from './middleware/routing-middleware';
 
 const app = express();
 
-function launchServer() {
-  app.listen(envConf.port, function (err) {
-    if (err) {
-      base.console.error(`${err}`);
-      return;
-    }
-    base.console.success(`Server up on http://localhost:${envConf.port}`);
-  });
-}
-
-function prepareServer() {
+const launchServer = () => {
   applyEnvMiddleWare(app)
     .then(() => {
       base.console.info('Checking static paths...');
@@ -30,11 +21,11 @@ function prepareServer() {
     })
     .then(() => {
       base.console.info('Setting up server...');
-      launchServer();
+      httpServer(app);
     })
     .catch((e) => {
       base.console.error(`Server Error ${e}...`);
     });
-}
+};
 
-prepareServer();
+launchServer();

@@ -1,4 +1,4 @@
-import path from 'path';
+/* import path from 'path';
 
 import base from '../../';
 import { fileExists, readDir, writeFile } from '../FileSystem';
@@ -56,3 +56,4 @@ module.exports.RegenerateReducerIndex = RegenerateReducerIndex;
 module.exports.RegenerateImportLine = RegenerateImportLine;
 module.exports.RegenerateExportLine = RegenerateExportLine;
 module.exports.getContainerReducers = getContainerReducers;
+*/

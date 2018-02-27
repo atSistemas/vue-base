@@ -1,4 +1,4 @@
-import { Record } from 'immutable';
+import { Record } from 'immutable'
 
 const CalculatorModel = new Record({
   display: 0,
@@ -8,10 +8,10 @@ const CalculatorModel = new Record({
   nextValue: 0,
   newValue: false,
   resetDisplay: false,
-});
+})
 
-function setInitialState(initialState) {
-  return initialState.Calculator = new CalculatorModel();
+function setInitialState (initialState) {
+  return initialState.Calculator = new CalculatorModel()
 }
 
-export { CalculatorModel, setInitialState };
+export { CalculatorModel, setInitialState }

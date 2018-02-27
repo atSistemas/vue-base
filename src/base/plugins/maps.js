@@ -1,5 +1,5 @@
-import Vue from 'vue';
-const VueGoogleMaps = require('vue2-google-maps');
+import Vue from 'vue'
+const VueGoogleMaps = require('vue2-google-maps')
 
 Vue.use(VueGoogleMaps, {
   load: {
@@ -7,4 +7,4 @@ Vue.use(VueGoogleMaps, {
     v: '3',
     libraries: 'places'
   }
-});
+})
