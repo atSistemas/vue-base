@@ -17,13 +17,23 @@
 
 <style scoped>
 .map {
-  height: 75vh;
+  height: calc(100vh - 50px); 
 }
 </style>
 
 <script>
+import Vue from 'vue'
+import * as VueGoogleMaps from 'vue2-google-maps'
 import { mapGetters } from 'vuex';
 import StationMarkerComponent from '../station-marker/station-marker.component';
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyDCNAQelN8Ug0jxWzpoZz_PFW_SKBTHcJs',
+    v: '3',
+    libraries: 'places'
+  }
+})
 
 export default {
   name: 'weather-map',

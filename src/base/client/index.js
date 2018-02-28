@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from 'app/App'
 import router from '../routes'
 import store from '../store'
-import maps from '../plugins/maps'
 
 Vue.config.productionTip = false
 

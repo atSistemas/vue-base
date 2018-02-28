@@ -51,7 +51,7 @@
 
 <script>
 import moment from 'moment';
-import { temperature, pressure, humidity } from 'base/filters';
+import { temperature, pressure, humidity } from '../../constants/weather.filters';
 
 export default {
   name: 'forecast-detail',

@@ -1,6 +1,5 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
     "parser": "babel-eslint",
     "ecmaVersion": 2017,
@@ -9,16 +8,15 @@ module.exports = {
   env: {
     browser: true,
   },
-  "extends": [
-    'airbnb-base',
+  extends: [
+    'airbnb-standard',
     'eslint:recommended',
     'plugin:vue/recommended',
-    'standard'
   ],
   plugins: [
     'vue'
   ],
-  'rules': {
+  rules: {
     'import/extensions': ['error', 'always', {
       'js': 'never',
       'vue': 'never'
@@ -37,7 +35,7 @@ module.exports = {
     "indent": [2, 2, {"SwitchCase": 1}],    
     "no-console": 0,
     "no-alert": 0,
-    "semi": 2,
+    "semi": ["error", "never"],
     "no-var": 2,
     "space-before-blocks": 2,
     "keyword-spacing": 2,
