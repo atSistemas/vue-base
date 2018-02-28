@@ -35,7 +35,6 @@ Vue.use(VueGoogleMaps, {
   }
 })
 
-
 export default {
   name: 'weather-map',
   components: {
