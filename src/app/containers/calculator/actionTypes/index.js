@@ -1,4 +1,4 @@
-import { typeBuilder } from 'base';
+import { typeBuilder } from 'base'
 
 export default typeBuilder([
   'SUM',
@@ -13,4 +13,4 @@ export default typeBuilder([
   'INPUT_DECIMAL',
   'INPUT_OPERATOR',
   'INPUT_OPERATION'
-]);
+])
