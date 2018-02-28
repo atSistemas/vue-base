@@ -21,14 +21,14 @@
 </style>
 
 <script>
-import topBar from './components/topBar/topBar';
+import topBar from './components/topBar/topBar'
 
 export default {
   name: 'app',
   components: {
     topBar
   }
-};
+}
 </script>
 
 

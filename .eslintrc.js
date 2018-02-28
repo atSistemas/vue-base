@@ -8,16 +8,15 @@ module.exports = {
   env: {
     browser: true,
   },
-  "extends": [
-    'airbnb-base',
+  extends: [
+    'airbnb-standard',
     'eslint:recommended',
     'plugin:vue/recommended',
-    'standard'
   ],
   plugins: [
     'vue'
   ],
-  'rules': {
+  rules: {
     'import/extensions': ['error', 'always', {
       'js': 'never',
       'vue': 'never'

@@ -1,6 +1,6 @@
 const CounterActionTypes = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
-}
+};
 
-export default CounterActionTypes
+export default CounterActionTypes;

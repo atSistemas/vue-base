@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import App from 'app/App'
-import router from '../routes'
-import store from '../store'
+import Vue from 'vue';
+import App from 'app/App';
+import router from '../routes';
+import store from '../store';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
@@ -12,4 +12,4 @@ new Vue({
   router,
   components: { App },
   template: '<App/>',
-})
+});
