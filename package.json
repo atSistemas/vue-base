@@ -56,6 +56,7 @@
     "compression": "1.7.2",
     "css-modules-require-hook": "^4.0.6",
     "express": "^4.15.3",
+    "moment": "^2.20.1",
     "vue": "^2.3.3",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
