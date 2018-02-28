@@ -1,3 +1,23 @@
 {
-    "vsicons.presets.angular": false
+    "prettier.eslintIntegration": true,
+    "eslint.autoFixOnSave": true,
+    "editor.tabSize": 2,
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.projectDetection.autoReload": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "eslint.validate": ["javascript", "javascriptreact", {
+        "language": "vue",
+        "autoFix": true
+    }],
+    "eslint.autoFixOnSave": true,
+    "javascript.validate.enable": false,
+    "editor.formatOnSave": false,
+    "prettier.eslintIntegration": true,
+    "recommendations": [
+        "liuji-jim.vue",
+        "hollowtree.vue-snippets",
+        "robertohuertasm.vscode-icons",
+        "eamodio.gitlens",
+        "msjsdiag.debugger-for-chrome"
+	]
 }
