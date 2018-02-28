@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>VueJS Starter</h1>
+    <h1>Vue Base</h1>
+    <img src="assets/logo.png">
   </div>
 </template>
 

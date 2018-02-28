@@ -1,6 +1,5 @@
 import path from 'path'
-
-import base from '../../'
+import { base } from '../../'
 import { fileExists, readDir, writeFile } from '../FileSystem'
 
 const exportTpl = '\n\nconst modelIndex = [@param];\n\nexport default { modelIndex };'
@@ -44,7 +43,7 @@ function getContainerModels (containersPath) {
   return containers.map(function (container) {
     let modelPath = path.resolve(containersPath, container, 'models', 'index.js')
     if (fileExists(modelPath)) {
-      return { name: container, import: RegenerateImportLine(container)}
+      return { name: container, import: RegenerateImportLine(container) }
     } else {
       return { name: container, import: null }
     }

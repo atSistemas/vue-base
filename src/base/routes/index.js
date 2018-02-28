@@ -25,5 +25,10 @@ export default new Router({
       name: 'weather',
       component: WeatherComponent,
     },
+    {
+      path: '/lazy',
+      name: 'lazy',
+      component: Lazy
+    }
   ],
 })

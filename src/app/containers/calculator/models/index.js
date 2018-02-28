@@ -11,7 +11,8 @@ const CalculatorModel = new Record({
 })
 
 function setInitialState (initialState) {
-  return initialState.Calculator = new CalculatorModel()
+  initialState.Calculator = new CalculatorModel()
+  return initialState
 }
 
 export { CalculatorModel, setInitialState }

@@ -27,13 +27,15 @@
 </style>
 
 <script>
-import { weather } from 'base/filters';
+import { temperature, humidity, pressure } from '../../constants/weather.filters';
 
 export default {
   name: 'station-info',
   props: ['id', 'info'],
   filters: {
-    ...weather,
+    temperature,
+    pressure,
+    humidity,
   },
   computed: {
     temperature() {
