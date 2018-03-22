@@ -8,11 +8,7 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: [
-    'airbnb-standard',
-    'eslint:recommended',
-    'plugin:vue/recommended',
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "standard"],
   plugins: [
     'vue'
   ],

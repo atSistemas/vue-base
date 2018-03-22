@@ -1,10 +1,8 @@
 <template>
-  
   <div id="app">
     <top-bar></top-bar>
     <router-view></router-view>
   </div>
-
 </template>
 
 <style>
@@ -30,5 +28,3 @@ export default {
   }
 }
 </script>
-
-
