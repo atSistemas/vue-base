@@ -19,7 +19,7 @@
 </style>
 
 <script>
-import topBar from './components/topBar/topBar'
+import topBar from './components/topBar/topBar.component.vue'
 
 export default {
   name: 'App',

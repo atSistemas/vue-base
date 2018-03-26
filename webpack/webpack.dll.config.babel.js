@@ -1,24 +1,25 @@
-import path from 'path';
-import webpack from 'webpack';
-import AssetsPlugin from 'assets-webpack-plugin';
+import path from 'path'
+import webpack from 'webpack'
+import AssetsPlugin from 'assets-webpack-plugin'
 
-import * as common from './webpack.common.config';
+import * as common from './webpack.common.config'
 
-export const cache = true;
-export const devtool = 'eval';
-export const entry = common.entry;
-export const context = common.context;
-export const resolve = common.resolve;
+export const mode = 'development'
+export const cache = true
+export const devtool = 'eval'
+export const entry = common.entry
+export const context = common.context
+export const resolve = common.resolve
 
 export const output = {
   path: common.buildPath,
   publicPath: '/',
   library: '[name]',
   filename: '[name].dll.js',
-};
+}
 
 export const module = {
-  loaders: [
+  rules: [
     {
       test: /\.vue$/,
       include: [/src/],
@@ -26,7 +27,7 @@ export const module = {
       exclude: [/node_modules/, /dist/, /server/],
     },
   ],
-};
+}
 
 export const plugins = [
   new webpack.DllPlugin({
@@ -39,4 +40,4 @@ export const plugins = [
     prettyPrint: true,
   }),
 ]
-  .concat(common.plugins);
+  .concat(common.plugins)
