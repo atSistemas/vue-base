@@ -84,5 +84,9 @@ export const plugins = [
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.optimize.UglifyJsPlugin({compressor: { warnings: false }, output: {comments: false}}),
   new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
+  // new HtmlWebpackPlugin({
+  //   title: 'Vue Base',
+  //   template: 'index.html'
+  // })
 ]
 .concat(common.plugins);

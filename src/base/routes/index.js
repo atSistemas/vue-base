@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import CalculatorContainer from 'containers/calculator/calculator.container'
+import CalculatorContainer from 'containers/calculator/calculator.container.vue'
 import HomeComponent from 'containers/home/components/home-main/home-main.component'
 import CounterComponent from 'containers/counter/components/counter-main/counter-main.component'
 import WeatherComponent from 'containers/weather/components/weather-main/weather-main.component'
