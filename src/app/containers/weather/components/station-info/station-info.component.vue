@@ -27,26 +27,35 @@
 </style>
 
 <script>
-import { temperature, humidity, pressure } from '../../constants/weather.filters';
+import { temperature, humidity, pressure } from '../../constants/weather.filters'
 
 export default {
-  name: 'station-info',
-  props: ['id', 'info'],
+  name: 'StationInfo',
   filters: {
     temperature,
     pressure,
     humidity,
   },
+  props: {
+    id: {
+      type: String,
+      default: ''
+    },
+    info: {
+      type: Object,
+      default: Object
+    }
+  },
   computed: {
-    temperature() {
-      return this.info.temp;
+    temperature () {
+      return this.info.temp
     },
-    pressure() {
-      return this.info.pressure;
+    pressure () {
+      return this.info.pressure
     },
-    humidity() {
-      return this.info.humidity;
-    },
+    humidity () {
+      return this.info.humidity
+    }
   }
 }
 </script>

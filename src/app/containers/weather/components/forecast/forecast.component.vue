@@ -6,7 +6,7 @@
         v-for="(forecast, index) of forecasts"
         :key="index"
         :forecast="forecast"
-      ></weather-forecast-detail>
+      />
     </div>
   </div>
 </template>
@@ -26,13 +26,18 @@
 </style>
 
 <script>
-import ForecastDetail from '../forecast-detail/forecast-detail.component';
+import ForecastDetail from '../forecast-detail/forecast-detail.component'
 
 export default {
-  name: 'weather-forecast',
-  props: ['forecasts'],
+  name: 'WeatherForecast',
   components: {
     'weather-forecast-detail': ForecastDetail,
+  },
+  props: {
+    forecasts: {
+      type: ArrayBuffer,
+      default: []
+    }
   },
 }
 </script>

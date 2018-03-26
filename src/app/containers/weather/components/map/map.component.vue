@@ -1,31 +1,31 @@
 <template>
   <gmap-map
-    class="map"
     :zoom="zoom"
     :center="center"
     :options="options"
+    class="map"
     @g-tilesloaded="onLoad()"
   >
     <weather-station-marker
       v-for="(station, index) of stations"
       :key="index"
       :station="station"
-      v-on:select-station="onSelectStation($event)"
-    ></weather-station-marker>
+      @select-station="onSelectStation($event)"
+    />
   </gmap-map>
 </template>
 
 <style scoped>
 .map {
-  height: calc(100vh - 50px); 
+  height: calc(100vh - 50px)
 }
 </style>
 
 <script>
 import Vue from 'vue'
 import * as VueGoogleMaps from 'vue2-google-maps'
-import { mapGetters } from 'vuex';
-import StationMarkerComponent from '../station-marker/station-marker.component';
+import { mapGetters } from 'vuex'
+import StationMarkerComponent from '../station-marker/station-marker.component'
 
 Vue.use(VueGoogleMaps, {
   load: {
@@ -36,11 +36,11 @@ Vue.use(VueGoogleMaps, {
 })
 
 export default {
-  name: 'weather-map',
+  name: 'WeatherMap',
   components: {
     'weather-station-marker': StationMarkerComponent,
   },
-  data() {
+  data () {
     return {
       zoom: 6,
       lat: 40.4047789,
@@ -50,24 +50,24 @@ export default {
         mapTypeControl: false,
         streetViewControl: false,
       }
-    };
+    }
   },
   computed: {
-    center() {
-      const { lat, lng } = this;
-      return { lat, lng };
+    center () {
+      const { lat, lng } = this
+      return { lat, lng }
     },
     ...mapGetters([
       'stations',
     ]),
   },
   methods: {
-    onLoad() {
-      this.$emit('loadMap', true);
+    onLoad () {
+      this.$emit('loadMap', true)
     },
-    onSelectStation(station) {
-      this.$emit('selectStation', station);
+    onSelectStation (station) {
+      this.$emit('selectStation', station)
     },
   }
-};
+}
 </script>
