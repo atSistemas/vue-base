@@ -67,7 +67,7 @@ export const plugins = [
   new MiniCssExtractPlugin({
     filename: '[name].css',
     chunkFilename: '[id].css'
-  }),
+  })
   // new HtmlWebpackPlugin({
   //   title: 'Vue Base',
   //   template: 'index.html'

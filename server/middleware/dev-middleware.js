@@ -23,7 +23,7 @@ const serverOptions = {
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
     'Access-Control-Allow-Headers': 'X-Requested-With , Accept-Language, Content-type, Authorization'
   }
-};
+}
 
 let bundleStart = Date.now()
 

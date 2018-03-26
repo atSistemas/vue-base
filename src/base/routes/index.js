@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import CalculatorContainer from 'containers/calculator/calculator.container.vue'
-import HomeComponent from 'containers/home/home.container.vue'
-import WeatherComponent from 'containers/weather/weather.container.vue'
-
-const Lazy = () => import('containers/lazy/lazy.container.vue')
+const HomeContainer = () => import('containers/home/home.container.vue')
+const CalculatorContainer = () => import('containers/calculator/calculator.container.vue')
+const WeatherContainer = () => import('containers/weather/weather.container.vue')
+const LazyContainer = () => import('containers/lazy/lazy.container.vue')
 
 Vue.use(Router)
 
@@ -15,7 +14,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: HomeComponent,
+      component: HomeContainer,
     },
     {
       path: '/calculator',
@@ -25,12 +24,12 @@ export default new Router({
     {
       path: '/weather',
       name: 'weather',
-      component: WeatherComponent,
+      component: WeatherContainer,
     },
     {
       path: '/lazy',
       name: 'lazy',
-      component: Lazy
+      component: LazyContainer
     }
   ],
 })
