@@ -1,21 +1,26 @@
 {
   "presets": [
+    ["es2015", {"modules": false}],
     "env",
-    "stage-2",
-    "es2015"
+    "stage-2"
     ],
-  "plugins": ["transform-runtime"],
+  "plugins": [
+    "transform-runtime",
+    "add-module-exports"
+  ],
   "comments": false,
   "env": {
     "development": {
       "plugins": [
-        ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
+        ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.client.js" } ],
+        ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.server.js" } ],
         "syntax-dynamic-import"
       ]
     },
     "production": {
       "plugins": [
-        ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
+        ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.client.js" } ],
+        ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.server.js" } ],
         "syntax-dynamic-import"
       ]
     }

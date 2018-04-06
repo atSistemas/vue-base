@@ -41,5 +41,4 @@ const applyDevMiddleware = function () {
     webpackDevMiddleware(compiler, serverOptions),
   ]
 }
-
 module.exports = applyDevMiddleware

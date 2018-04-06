@@ -4,7 +4,6 @@
     <router-view/>
   </div>
 </template>
-
 <style>
   body {
     margin: 0px;
@@ -17,7 +16,6 @@
     color: #2c3e50;
   }
 </style>
-
 <script>
 import topBar from './components/topBar/topBar.component.vue'
 

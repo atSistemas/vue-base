@@ -1,4 +1,4 @@
-import compileInfoPlugin from './compileInfoPlugin'
-import fileHashPlugin from './fileHashPlugin'
+import CompileInfoPlugin from './compileInfoPlugin'
+import FileHashPlugin from './fileHashPlugin'
 
-export default { compileInfoPlugin, fileHashPlugin }
+export default { CompileInfoPlugin, FileHashPlugin }

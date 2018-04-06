@@ -1,15 +1,3 @@
-import * as express from 'express';
+export default function routingMiddleware (req, res) {
 
-import { console } from 'base';
-import renderPage from '../templates/';
-
-export default function applyServerRouting(app) {
-
-  const page = renderPage();
-  app.use((req, res, next) => {
-    res.status(200).send(page);
-    return;
-  });
-
-  console.success(`Routing up`);
 }

@@ -1,0 +1,8 @@
+{
+  "name": "Vue Base",
+  "short_name": "VueBase",
+  "start_url": "/",
+  "background_color": "#6bd393",
+  "display": "standalone",
+  "theme_color": "#6bd393"
+}

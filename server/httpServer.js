@@ -1,10 +1,9 @@
 import base from 'base/'
-import envConf from './enviroment'
 
 const httpServer = app => {
-  app.listen(envConf.port, (err) => {
+  app.listen(8000, (err) => {
     if (err) return base.console.error(`${err}`)
-    base.console.success(`HTTP Server up on http://localhost:${envConf.port}`)
+    base.console.success(`HTTP Server up on http://localhost:8000`)
   })
 }
 

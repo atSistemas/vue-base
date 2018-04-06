@@ -22,7 +22,7 @@
 </style>
 
 <script>
-import Vue from 'vue'
+import Vue from 'vue/dist/vue'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import { mapGetters } from 'vuex'
 import StationMarkerComponent from '../station-marker/station-marker.component'
