@@ -1,13 +1,12 @@
-import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpack from 'webpack'
+import webpackDevMiddleware from 'webpack-dev-middleware'
+import webpackHotMiddleware from 'webpack-hot-middleware'
 
-import base from '../../src/base/';
-import routingMiddleware from './routing-middleware';
+import base from '../../src/base/'
 
-const config = require('../../webpack/index.babel.js');
+const config = require('../../webpack/index.babel.js')
 
-const compiler = webpack(config);
+const compiler = webpack(config)
 
 const serverOptions = {
   hot: true,
@@ -24,23 +23,23 @@ const serverOptions = {
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
     'Access-Control-Allow-Headers': 'X-Requested-With , Accept-Language, Content-type, Authorization'
   }
-};
+}
 
-let bundleStart = Date.now();
+let bundleStart = Date.now()
 
-compiler.plugin("compile", function() {
-  bundleStart = Date.now();
-});
+compiler.plugin('compile', function () {
+  bundleStart = Date.now()
+})
 
-compiler.plugin('done', function() {
-  base.console.success(`Bundled project in ${Date.now() - bundleStart} ms!`);
-});
+compiler.plugin('done', function () {
+  base.console.success(`Bundled project in ${Date.now() - bundleStart} ms!`)
+})
 
-const applyDevMiddleware = function() {
+const applyDevMiddleware = function () {
   return [
-    webpackHotMiddleware(compiler, { log:false, noInfo: true, quiet: true}),
+    webpackHotMiddleware(compiler, {log: false, noInfo: true, quiet: true}),
     webpackDevMiddleware(compiler, serverOptions),
-  ];
-};
+  ]
+}
 
-module.exports = applyDevMiddleware;
+module.exports = applyDevMiddleware
