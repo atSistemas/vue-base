@@ -41,10 +41,10 @@ export default function setupDevServer (app, templatePath, cb) {
   // modify client config to work with hot middleware
   clientConfig.entry.app = ['webpack-hot-middleware/client', clientConfig.entry.app]
   clientConfig.output.filename = '[name].js'
-  clientConfig.plugins.push(
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  )
+  // clientConfig.plugins.push(
+  //   new webpack.HotModuleReplacementPlugin(),
+  //   new webpack.NoEmitOnErrorsPlugin()
+  // )
 
   // dev middleware
   const clientCompiler = webpack(clientConfig)
