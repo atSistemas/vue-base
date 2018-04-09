@@ -1,17 +1,17 @@
-import webpack from 'webpack';
-import * as common from './webpack.common.config';
+import webpack from 'webpack'
+import * as common from './webpack.common.config'
 
-export const cache = true;
-export const devtool = 'cheap-source-map';
-export const context = common.context;
-export const resolve = common.resolve;
+export const cache = true
+export const devtool = 'cheap-source-map'
+export const context = common.context
+export const resolve = common.resolve
 export const entry = {
   app: [
     common.clientPath,
     'webpack/hot/dev-server',
     'webpack-hot-middleware/client',
   ],
-};
+}
 
 export const output = {
   path: common.buildPath,
@@ -20,7 +20,7 @@ export const output = {
   filename: '[name].js',
   sourceMapFilename: '[name].map',
   chunkFilename: '[name].chunk.js',
-};
+}
 
 export const module = {
   rules: [
@@ -45,7 +45,7 @@ export const module = {
       },
     }
   ],
-};
+}
 
 export const plugins = [
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}),
@@ -55,4 +55,4 @@ export const plugins = [
     manifest: require(`${common.dllPath}/vendor-manifest.json`)
   }),
 ]
-  .concat(common.plugins);
+  .concat(common.plugins)
