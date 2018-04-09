@@ -5,8 +5,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'home-main',
-};
-</script>
+<script src="./home.container.js"></script>

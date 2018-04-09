@@ -7,7 +7,7 @@ import router from '../routes'
 // FIXME
 Vue.config.productionTip = false
 
-new Vue({
+export default new Vue({
   el: '#app',
   store,
   router,

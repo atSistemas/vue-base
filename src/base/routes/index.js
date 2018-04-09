@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import CalculatorContainer from 'containers/calculator/calculator.container'
-import HomeComponent from 'containers/home/components/home-main/home-main.component'
-import CounterComponent from 'containers/counter/components/counter-main/counter-main.component'
-import WeatherComponent from 'containers/weather/components/weather-main/weather-main.component'
+import CalculatorContainer from 'containers/calculator/calculator.container.vue'
+import HomeComponent from 'containers/home/home.container.vue'
+import WeatherComponent from 'containers/weather/weather.container.vue'
 
-const Lazy = () => import('containers/lazy/components/lazy-main/lazy-main.component')
+const Lazy = () => import('containers/lazy/lazy.container.vue')
 
 Vue.use(Router)
 
@@ -21,11 +20,6 @@ export default new Router({
       path: '/calculator',
       name: 'calculator-container',
       component: CalculatorContainer,
-    },
-    {
-      path: '/counter',
-      name: 'counter',
-      component: CounterComponent,
     },
     {
       path: '/weather',

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <top-bar></top-bar>
-    <router-view></router-view>
+    <top-bar/>
+    <router-view/>
   </div>
 </template>
 
@@ -22,7 +22,7 @@
 import topBar from './components/topBar/topBar'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     topBar
   }

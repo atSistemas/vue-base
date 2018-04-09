@@ -47,41 +47,39 @@
   justify-content: space-between;
 }
 </style>
-
-
 <script>
-import moment from 'moment';
-import { temperature, pressure, humidity } from '../../constants/weather.filters';
+import moment from 'moment'
+import { temperature, pressure, humidity } from '../../constants/weather.filters'
 
 export default {
-  name: 'forecast-detail',
+  name: 'ForecastDetail',
   filters: {
     temperature,
     pressure,
     humidity,
   },
   computed: {
-    date() {
-      const dt = new Date(this.forecast.dt * 1000);
-      return moment(dt).format('DD/MM/YYYY');
+    date () {
+      const dt = new Date(this.forecast.dt * 1000)
+      return moment(dt).format('DD/MM/YYYY')
     },
-    day() {
-      return this.forecast.temp.day;
+    day () {
+      return this.forecast.temp.day
     },
-    min() {
-      return this.forecast.temp.min;
+    min () {
+      return this.forecast.temp.min
     },
-    max() {
-      return this.forecast.temp.max;
+    max () {
+      return this.forecast.temp.max
     },
-    night() {
-      return this.forecast.temp.night;
+    night () {
+      return this.forecast.temp.night
     },
-    eve() {
-      return this.forecast.temp.eve;
+    eve () {
+      return this.forecast.temp.eve
     },
-    morn() {
-      return this.forecast.temp.morn;
+    morn () {
+      return this.forecast.temp.morn
     },
   },
 }
