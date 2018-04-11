@@ -1,8 +1,9 @@
 import webpack from 'webpack'
 import * as common from './webpack.common.config'
+import VueSSRClientPlugin from 'vue-server-renderer/client-plugin'
 
 export const cache = true
-export const devtool = 'cheap-source-map'
+export const devtool = 'cheap-module-source-map'
 export const context = common.context
 export const resolve = common.resolve
 export const entry = {
@@ -50,9 +51,6 @@ export const module = {
 export const plugins = [
   new webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}}),
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.DllReferencePlugin({
-    context: common.context,
-    manifest: require(`${common.dllPath}/vendor-manifest.json`)
-  }),
+  new VueSSRClientPlugin()
 ]
   .concat(common.plugins)

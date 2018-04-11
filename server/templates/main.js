@@ -1,20 +1,13 @@
-
-export default function main(params) {
-
+export default function main () {
   return `
   <!doctype html>
-	<html lang="utf-8">
+  <html lang="utf-8">
     <head>
-      <link rel="icon" href="assets/images/favicon.ico"/>
-      <title>React Base</title>
-      ${ params.vendorScript }
-      ${ params.style }
+      <title>Vue Base</title>
     </head>
     <body>
-    <div id="root">${ params.container }</div>
-      <script>window.$REACTBASE_STATE = ${ params.state }</script>
-      ${ params.appScript }
+      <!--vue-ssr-outlet-->
     </body>
   </html>
-  `;
+  `
 }

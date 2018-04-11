@@ -1,16 +1,20 @@
 {
   "presets": [
     ["env", { "modules": false }],
-    "stage-2",
+    "stage-3",
     "es2015"
     ],
-  "plugins": ["transform-runtime"],
   "comments": false,
   "env": {
     "development": {
       "plugins": [
         ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
-        "syntax-dynamic-import"
+        "syntax-dynamic-import",
+        "transform-runtime",
+        "transform-vue-jsx",
+        
+        
+        "transform-object-rest-spread"
       ]
     },
     "production": {

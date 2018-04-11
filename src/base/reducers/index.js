@@ -1,6 +1,5 @@
-/* import { combineReducers } from 'redux';
-import homeReducer from 'app/containers/main/reducers';
+import WeatherReducer from '../../app/containers/weather/reducers'
 
 export default ({
-  homeReducer,
-}); */
+  weather: WeatherReducer,
+})

@@ -1,6 +1,6 @@
 import path from 'path'
 import express from 'express'
-
+import favicon from 'serve-favicon'
 import base from 'base'
 
 const commonStatics = [
@@ -25,4 +25,5 @@ export default function applyStaticsPaths (app) {
     app.use(staticPath.route, express.static(staticPath.dir))
     base.console.success(`Applied static path ${staticPath.route}`)
   })
+  app.use(favicon('./src/app/assets/favicon.png'))
 }

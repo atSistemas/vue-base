@@ -1,11 +1,10 @@
 import express from 'express'
 
 import base from 'base/'
-import envConf from './enviroment'
 import httpServer from './httpServer'
 import applyStaticsPaths from './statics'
 import applyEnvMiddleWare from './middleware'
-import applyServerRouting from './middleware/routing-middleware'
+import applyServerRouting from './routing'
 
 const app = express()
 

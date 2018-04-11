@@ -1,17 +1,15 @@
-import Vue from 'vue'
+import Vue from 'vue/dist/vue'
 import Vuex from 'vuex'
+import Reducers from '../reducers'
 import createLogger from '../wp-plugins/logger'
-
-import WeatherReducer from '../../app/containers/weather/reducers'
-
-const debug = process.env.NODE_ENV !== 'production'
+import { env } from '../shared/Env'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  modules: {
-    weather: WeatherReducer,
-  },
-  strict: debug,
-  plugins: debug ? [createLogger()] : []
-})
+export function createStore () {
+  return new Vuex.Store({
+    modules: Reducers,
+    strict: env === 'development',
+    plugins: env === 'development' ? [createLogger()] : []
+  })
+}
