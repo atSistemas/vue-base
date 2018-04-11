@@ -5,7 +5,7 @@ import { fetchRequiredActions, context } from 'base'
 import renderPage from '../lib/renderPage'
 import renderContainer from '../lib/renderContainer'
 import configureServerStore from '../lib/configureStore'
-import { createApp } from '../../src/base/client'
+import { createApp } from '../../src/base/routes'
 
 export default function routingMiddleware (req, res) {
   const { app, router, store } = createApp()
@@ -25,32 +25,34 @@ export default function routingMiddleware (req, res) {
   //     .catch(err => res.end(err.message))
   // })
   // this assumes App.vue template root element has `id="app"`
-
-  console.log('router ready')
-  // Add router hook for handling asyncData.
-  // Doing it after initial route is resolved so that we don't double-fetch
-  // the data that we already have. Using router.beforeResolve() so that all
-  // async components are resolved.
-  router.beforeResolve((to, from, next) => {
-    console.log(to)
-    const matched = router.getMatchedComponents(to)
-    const prevMatched = router.getMatchedComponents(from)
-    let diffed = false
-    const activated = matched.filter((c, i) => {
-      return diffed || (diffed = (prevMatched[i] !== c))
-    })
-    const asyncDataHooks = activated.map(c => c.asyncData).filter(_ => _)
-    if (!asyncDataHooks.length) {
-      return next()
-    }
-
-    Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
-      .then(() => {
-        next()
+  console.log(router)
+  router.onReady(() => {
+    console.log('router ready')
+    // Add router hook for handling asyncData.
+    // Doing it after initial route is resolved so that we don't double-fetch
+    // the data that we already have. Using router.beforeResolve() so that all
+    // async components are resolved.
+    router.beforeResolve((to, from, next) => {
+      console.log(to)
+      const matched = router.getMatchedComponents(to)
+      const prevMatched = router.getMatchedComponents(from)
+      let diffed = false
+      const activated = matched.filter((c, i) => {
+        return diffed || (diffed = (prevMatched[i] !== c))
       })
-      .catch(next)
-  })
+      const asyncDataHooks = activated.map(c => c.asyncData).filter(_ => _)
+      if (!asyncDataHooks.length) {
+        return next()
+      }
 
-  // actually mount to DOM
-  app.$mount('#app')
+      Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
+        .then(() => {
+          next()
+        })
+        .catch(next)
+    })
+
+    // actually mount to DOM
+    app.$mount('#app')
+  })
 }

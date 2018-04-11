@@ -11,9 +11,6 @@
         ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
         "syntax-dynamic-import",
         "transform-runtime",
-        "transform-vue-jsx",
-        
-        
         "transform-object-rest-spread"
       ]
     },

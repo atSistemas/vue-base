@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import { context } from 'base'
 
 // if(context.client) {
-import HomeContainer from 'containers/home/home.container.js'
+import HomeContainer from 'containers/home/home.container.vue'
 // import CalculatorContainer from 'containers/calculator/calculator.container.vue'
 // import WheaterContainer from 'containers/weather/weather.container.vue'
 // import LazyContainer from 'containers/lazy/lazy.container.vue'

@@ -1,5 +1,5 @@
 import Vue from 'vue/dist/vue'
-import App from 'app/App.js'
+import App from 'app/App.vue'
 
 import { createRouter } from '../routes'
 import { createStore } from '../store'
