@@ -5,7 +5,7 @@
 ![Npm-Version](https://img.shields.io/badge/npm-6.2.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-**A modular platform for Redux Isomorphic applications**
+**A starter kit for VueJs Applications**
 
 This repository is a modular abstraction to build a [VueJS](https://vuejs.org/) web application based on [Redux](https://vuex.vuejs.org/en/intro.html) paradigm.
 You can use it to quickly scaffold your Vue web application projects and development environments.
