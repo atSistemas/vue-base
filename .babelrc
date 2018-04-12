@@ -1,20 +1,19 @@
 {
   "presets": [
-    ["env", { "modules": false }],
-    "stage-2",
-    "es2015"
+    [ "env", { "targets": {"node": true}}],
+    "latest"
     ],
-  "plugins": ["transform-runtime"],
-  "comments": false,
   "env": {
     "development": {
       "plugins": [
+        "transform-runtime",
         ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
         "syntax-dynamic-import"
       ]
     },
     "production": {
       "plugins": [
+        "transform-runtime",
         ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
         "syntax-dynamic-import"
       ]
