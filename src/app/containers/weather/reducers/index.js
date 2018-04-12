@@ -1,5 +1,5 @@
 import { getters } from '../getters'
-import { actions } from '../actions'
+import * as actions from '../actions'
 import { mutations } from '../mutations'
 
 const state = {
