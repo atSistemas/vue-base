@@ -7,7 +7,7 @@
 
 **A starter kit for VueJs Applications**
 
-This repository is a modular abstraction to build a [VueJS](https://vuejs.org/) web application based on [Redux](https://vuex.vuejs.org/en/intro.html) paradigm.
+This repository is a modular abstraction to build a [VueJS](https://vuejs.org/) web application based on [Redux](https://vuex.vuejs.org/en/intro.html) paradigm using [Vuex](https://vuex.vuejs.org/en/intro.html).
 You can use it to quickly scaffold your Vue web application projects and development environments.
 
 This seed should clarify how to wire up all the modules of your application, even when we understand that in some cases
@@ -136,19 +136,52 @@ app/
   ...
 ```
 
-## Action Types
-ActionTypes it's a representation using constants of your possible actions:
+## **Vuex**
+Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion. It also integrates with Vue's official [devtools extension](https://github.com/vuejs/vue-devtools) to provide advanced features such as zero-config time-travel debugging and state snapshot export / import.
+
+![Vuex](https://vuex.vuejs.org/en/images/vuex.png)
+
+Vuex is inspired by Flux, Redux and The Elm Architecture. Unlike the other patterns, Vuex is also a library implementation tailored specifically for Vue.js to take advantage of its granular reactivity system for efficient updates.
+
+### **Vuex Core concepts**
+* **State**
+* **Getters**
+* **Mutations**
+* **Actions**
+* **Modules**
+
+#### State
+Vuex uses a single state tree - that is, this single object contains all your application level state and serves as the "single source of truth". This also means usually you will have only one store for each application. A single state tree makes it straightforward to locate a specific piece of state, and allows us to easily take snapshots of the current app state for debugging purposes.
+
+#### Getters
+You can think of them as computed properties for stores. Like computed properties, a getter's result is cached based on its dependencies, and will only re-evaluate when some of its dependencies have changed.
+
+#### Mutations
+The only way to actually change state in a Vuex store is by committing a mutation. Vuex mutations are very similar to events: each mutation has a string type and a handler. The handler function is where we perform actual state modifications, and it will receive the state as the first argument:
+```javascript
+import WeatherActionTypes from '../action-types'
+
+export const mutations = {
+  [WeatherActionTypes.SET_STATION] (state, stations) {
+    state.stations = stations
+  }
+}
+```
+You cannot directly call a mutation handler. Think of it more like event registration: "When a mutation with type increment is triggered, call this handler." To invoke a mutation handler, you need to call store.commit with its type:
 
 ```javascript
-const WeatherActionTypes = {
-  SET_STATION: 'SET_STATION',
-}
-
-export default WeatherActionTypes
+export const getStations = ({ commit }) => (
+  services.getStations()
+    .then(stations => 
+    commit(WeatherActionTypes.SET_STATION, stations))
+)
 ```
 
-## Actions
-Actions are payloads of information witch represent that something happend in your application and  send data from your application to your store:
+### Actions
+Actions are similar to mutations, the differences being that:
+
+* Instead of mutating the state, actions commit mutations.
+* Actions can contain arbitrary asynchronous operations.
 
 ```javascript
 import WeatherActionTypes from '../action-types'
@@ -164,14 +197,21 @@ export const actions = {
   }
 
 }
-
 ```
 
-The request middleware will resolve the request param 
- and dispatch a new action with "ACTION_SUCCESS" or "ACTION_ERROR" with the response of the request in the payload. 
+#### Action Types
+ActionTypes it's a representation using constants of your possible actions:
 
-## Reducers
-Reducers describe how the state of your application changes in response to a new Action. Vue-Base uses a custom CreateReducer that allows to use separated reducers functions instead of "switch based" reducers.
+```javascript
+import { createActionType } from 'base'
+
+export default createActionType([
+  'SET_STATION'
+])
+``` 
+
+### Modules
+Modules describe how the state of your application changes in response to a new Action. Modules are similar to reducer concept.
 
 ```javascript
 import { getters } from '../getters'
@@ -191,8 +231,85 @@ export default {
 }
 
 ```
+## **Vue Tips**
+### **Component communication**
 
-## Distribution
+* **From parent to child component**
+We use props to pass data from parent to child components. Props are custom attributes you can register on a component. When a value is passed to a prop attribute, it becomes a property on that component instance.
+
+```javascript
+Vue.component('blog-post', {
+    props: ['title'],
+    ...
+})
+```
+Once a prop is registered, you can pass data to it as a custom attribute, like this:
+```html
+<blog-post title="Welcome to VueBase"></blog-post>
+```
+* **From child to parent componentt**
+We use events to communicate with our direct parent component. We can use the v-on directive to listen to DOM events and run some JavaScript when they’re triggered. From a child method we can do something like:
+```javascript
+ this.$emit('myEvent', params)
+```
+To capture this event, we only have to register v-on directive when we define the child component in the html of our parent component like:
+```html
+<my-child-component v-on:my-event="doSomething"></my-child-component>
+```
+**doSomething** can be a method registered on our parent component which can do anything we want to do.
+
+
+
+### **Lifecycle**
+Vue components have the following methods during his life:
+* **beforeCreate()**
+* **created()**
+* **beforeMount()**
+* **mounted()**
+* **beforeUpdate()**
+* **update()**
+* **beforeDestroy()**
+* **destroy()**
+
+The next picture, shows a visual representation of this lifecycle methods:
+![vue lifecycle](https://vuejs.org/images/lifecycle.png)
+
+### Computed Properties
+In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain
+
+avoid
+```html
+<div id="example">
+  {{ message.split('').reverse().join('') }}
+</div>
+```
+do
+```html
+<div id="example">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
+```
+```javascript
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    // a computed getter
+    reversedMessage: function () {
+      // `this` points to the vm instance
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
+```
+
+### **Watchers**
+While computed properties are more appropriate in most cases, there are times when a custom watcher is necessary. That’s why Vue provides a more generic way to react to data changes through the watch option. This is most useful when you want to perform asynchronous or expensive operations in response to changing data.
+
+## **Distribution**
 
 You can generate a complete distribution source ready for production enviroments.
 
