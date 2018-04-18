@@ -1,6 +1,6 @@
 import { mapActions, mapGetters } from 'vuex'
-import MapComponent from './components/map/map.component'
-import ForecastComponent from './components/forecast/forecast.component'
+import MapComponent from './components/map/map.component.vue'
+import ForecastComponent from './components/forecast/forecast.component.vue'
 
 export default {
   name: 'WeatherMain',

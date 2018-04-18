@@ -14,48 +14,6 @@
   </gmap-info-window>
 </template>
 
-<style scoped>
-.container {
-  display: flex;
-  flex-flow: column nowrap;
-}
+<style scoped src="./station-info.component.css"></style>
 
-.content{
-  display: flex;
-  flex-flow: row nowrap;
-}
-</style>
-
-<script>
-import { temperature, humidity, pressure } from '../../constants/weather.filters'
-
-export default {
-  name: 'StationInfo',
-  filters: {
-    temperature,
-    pressure,
-    humidity,
-  },
-  props: {
-    id: {
-      type: String,
-      default: ''
-    },
-    info: {
-      type: Object,
-      default: Object
-    }
-  },
-  computed: {
-    temperature () {
-      return this.info.temp
-    },
-    pressure () {
-      return this.info.pressure
-    },
-    humidity () {
-      return this.info.humidity
-    }
-  }
-}
-</script>
+<script src="./station-info.component.js"></script>

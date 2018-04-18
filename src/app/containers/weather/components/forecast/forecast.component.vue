@@ -11,33 +11,5 @@
   </div>
 </template>
 
-<style scoped>
-  .forecast-container {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-  }
-
-  .forecast-list {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-  }
-</style>
-
-<script>
-import ForecastDetail from '../forecast-detail/forecast-detail.component'
-
-export default {
-  name: 'WeatherForecast',
-  components: {
-    'weather-forecast-detail': ForecastDetail,
-  },
-  props: {
-    forecasts: {
-      type: ArrayBuffer,
-      default: []
-    }
-  },
-}
-</script>
+<style scoped src="./forecast.component.css"></style>
+<script src="./forecast.component.js"></script>
