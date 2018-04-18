@@ -188,7 +188,7 @@
     "testRegex": "(/spec/.*|(\\.|/)(test|spec))\\.jsx?$",
     "collectCoverageFrom": [
       "**/*.{vue}",
-      "src/base/**/*.{js,vue}",
+      "!src/base/**",
       "!**/node_modules/**",
       "!coverage/**",
       "!dist/**",
