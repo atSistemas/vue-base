@@ -1,27 +1,32 @@
-import nodeExternals from 'webpack-node-externals'
-import common from './webpack.common.config'
+import { NodePathReplacePlugin } from '../src/base/wp-plugins/nodePathReplacePlugin'
+import * as common from './webpack.common.config'
 
 export const target = 'node'
-export const node = 'node'
-export const resolve = common.resolve
+export const node = common.node
+export const devtool = 'cheap-module-source-map'
 export const module = {
   rules: [
     {
       // this loader will compile vue files
       test: /\.vue$/,
-      loader: 'vue'
+      loader: 'vue-loader'
     },
     {
-      test: /\.js$/,
-      loader: 'babel',
-      exclude: /node_modules/,
-      options: {
-        presets: [ 'es2015', 'stage-2' ] // stage-2 if required
-      }
+      test: /(?!spec)\.js$/,
+      loader: 'babel-loader',
+      include: [
+        common.resolvePath('src'),
+      ],
+      exclude: [/node_modules/, /dist/],
     }
   ]
 }
+export const resolve = common.resolve
 
-export const externals = [
-  nodeExternals()
+export const plugins = [
+  new NodePathReplacePlugin()
 ]
+
+export const performance = {
+  hints: false
+}

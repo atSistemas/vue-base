@@ -1,0 +1,31 @@
+{
+  "include": [
+    "src/**/*.js"
+  ],
+  "exclude": [
+    "node_modules/",
+    "dist",
+    "webpack",
+    "**/**.spec.ts",
+    "src/base/conf",
+    "src/base/effects/index.ts",
+       "src/base/providers/index.ts",
+      "src/base/services/index.ts",
+    "src/base/wp-plugins",
+    "src/app/**/*.js"
+  ],
+  "extension": [
+    ".js"
+  ],
+  "require": [
+    "babel-core/register"
+  ],
+  "reporter": [
+    "text",
+    "text-summary",
+    "html"
+  ],
+  "all": true,
+  "sourceMap": true,
+  "instrument": true
+}

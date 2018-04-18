@@ -40,7 +40,7 @@
     "lint": "npm run logo && node node_modules/eslint/bin/eslint.js src --ignore-pattern **/*.spec.js --ext .vue,.js",
     "lint:css": "npm run logo && stylelint \"src/**/*.css\" --config .stylelintrc",
     "lint:all": "npm run lint && npm run lint:css",
-    "test": "npm run logo && cross-env NODE_ENV=development node ./node_modules/mocha-webpack/bin/mocha-webpack --webpack-config webpack/webpack.test.config.js --require ./src/base/shared/JsDomSetup.js src/**/*.spec.js",
+    "test": "npm run logo && cross-env NODE_ENV=testing node ./node_modules/mocha-webpack/bin/mocha-webpack --webpack-config webpack/index.babel.js --require ./src/base/shared/JsDomSetup.js src/**/*.spec.js",
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build:prod && cross-env NODE_ENV=production node server/",
