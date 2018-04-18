@@ -7,7 +7,8 @@ const { window } = jsdom
 global.window = window
 global.Event = window.Event
 global.document = window.document
-global.HTMLElement = window.HTMLElement
+
+global.Element = window.HTMLElement
 global.XMLHttpRequest = window.XMLHttpRequest
 global.Node = window.Node
 global.navigator = {

@@ -41,7 +41,8 @@
     "lint:css": "npm run logo && stylelint \"src/**/*.css\" --config .stylelintrc",
     "lint:all": "npm run lint && npm run lint:css",
     "test": "npm run logo && cross-env NODE_ENV=testing node ./node_modules/mocha-webpack/bin/mocha-webpack --webpack-config webpack/index.babel.js --require ./src/base/shared/JsDomSetup.js src/**/*.spec.js",
-    "test:coverage": "nyc npm test && nyc report --reporter=lcov",
+    "jest": "./node_modules/.bin/jest --coverage",
+    "test:coverage": "cross-env TEST_COVERAGE=coverage node ./node_modules/nyc/bin/nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build:prod && cross-env NODE_ENV=production node server/",
     "yo": "npm link src/base/conf/.react-base/templates/generator-react-base",
@@ -50,7 +51,7 @@
     "postinstall": "npm run generate:dll"
   },
   "dependencies": {
-    "babel-core": "6.26.0",
+    "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "compression": "1.7.2",
     "express": "4.16.2",
@@ -62,10 +63,13 @@
     "vuex": "3.0.1"
   },
   "devDependencies": {
+    "@vue/server-test-utils": "^1.0.0-beta.14",
+    "@vue/test-utils": "^1.0.0-beta.14",
     "assets-webpack-plugin": "3.5.1",
     "autoprefixer": "8.2.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "8.2.2",
+    "babel-jest": "^22.4.3",
     "babel-loader": "7.1.4",
     "babel-plugin-istanbul": "4.1.6",
     "babel-plugin-syntax-dynamic-import": "6.18.0",
@@ -105,21 +109,26 @@
     "html-webpack-plugin": "^3.1.0",
     "ignore-styles": "5.0.1",
     "isomorphic-fetch": "^2.2.1",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "jest": "^22.4.3",
     "jsdom": "11.4.0",
     "mocha": "^5.0.0",
     "mocha-webpack": "1.1.0",
+    "nyc": "^11.6.0",
     "postcss-import": "^11.0.0",
     "postcss-modules-extract-imports": "^1.1.0",
     "postcss-nested": "^3.0.0",
     "postcss-reporter": "^5.0.0",
     "postcss-url": "^7.0.0",
     "progress-bar-webpack-plugin": "^1.9.3",
+    "regenerator-runtime": "^0.11.1",
     "rimraf": "^2.6.0",
     "sinon": "^4.2.0",
     "sinon-chai": "^3.0.0",
     "standard": "^11.0.0",
     "url-loader": "^1.0.1",
     "vue-eslint-parser": "2.0.3",
+    "vue-jest": "^2.5.0",
     "vue-loader": "14.2.2",
     "vue-style-loader": "^4.0.2",
     "vue-template-compiler": "^2.5.16",
@@ -164,5 +173,30 @@
     "testing",
     "yeoman",
     "istambul"
-  ]
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "testRegex": "(/spec/.*|(\\.|/)(test|spec))\\.jsx?$",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,vue}",
+      "!**/node_modules/**",
+      "!src/base/**",
+      "!coverage/**",
+      "!dist/**",
+      "!server/**",
+      "!webpack/**"
+    ],
+    "moduleNameMapper": {
+      "^base(.*)$": "<rootDir>/src/base$1"
+    }
+  }
 }

@@ -1,18 +1,14 @@
 {
   "include": [
-    "src/**/*.js"
+    "src/**/*.vue"
   ],
   "exclude": [
     "node_modules/",
     "dist",
     "webpack",
-    "**/**.spec.ts",
+    "**/**.spec.js",
     "src/base/conf",
-    "src/base/effects/index.ts",
-       "src/base/providers/index.ts",
-      "src/base/services/index.ts",
-    "src/base/wp-plugins",
-    "src/app/**/*.js"
+    "src/base/wp-plugins"
   ],
   "extension": [
     ".js"

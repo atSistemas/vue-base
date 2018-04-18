@@ -46,10 +46,7 @@ export const module = {
     {
       test: /\.js$/,
       loader: 'babel-loader',
-      include: [
-        resolvePath('src'),
-      ],
-      exclude: [/node_modules/, /dist/, /assets/],
+      exclude: [/node_modules/],
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
