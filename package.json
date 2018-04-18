@@ -41,7 +41,8 @@
     "lint:css": "npm run logo && stylelint \"src/**/*.css\" --config .stylelintrc",
     "lint:all": "npm run lint && npm run lint:css",
     "test": "npm run logo && cross-env NODE_ENV=testing node ./node_modules/mocha-webpack/bin/mocha-webpack --webpack-config webpack/index.babel.js --require ./src/base/shared/JsDomSetup.js src/**/*.spec.js",
-    "jest": "./node_modules/.bin/jest --coverage",
+    "jest": "./node_modules/.bin/jest",
+    "jest:coverage": "./node_modules/.bin/jest --coverage",
     "test:coverage": "cross-env TEST_COVERAGE=coverage node ./node_modules/nyc/bin/nyc npm test && nyc report --reporter=lcov",
     "start": "npm run logo && cross-env NODE_ENV=development node server/",
     "start:prod": "npm run build:prod && cross-env NODE_ENV=production node server/",
@@ -185,11 +186,10 @@
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
     },
     "testRegex": "(/spec/.*|(\\.|/)(test|spec))\\.jsx?$",
-    "collectCoverage": true,
     "collectCoverageFrom": [
-      "**/*.{js,vue}",
+      "**/*.{vue}",
+      "src/base/**/*.{js,vue}",
       "!**/node_modules/**",
-      "!src/base/**",
       "!coverage/**",
       "!dist/**",
       "!server/**",
