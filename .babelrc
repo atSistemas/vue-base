@@ -18,6 +18,12 @@
         ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
         "syntax-dynamic-import"
       ]
+    },
+    "testing": {
+      "plugins": [
+        ["babel-plugin-webpack-alias", { "config": "./webpack/index.babel.js" } ],
+        "syntax-dynamic-import"
+      ]
     }
   }
 }

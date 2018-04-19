@@ -1,6 +1,6 @@
 {
   "include": [
-    "src/**/*.js"
+    "src/**/*.vue"
   ],
   "exclude": [
     "node_modules/",
@@ -8,17 +8,14 @@
     "webpack",
     "**/**.spec.ts",
     "src/base/conf",
-    "src/base/effects/index.ts",
-       "src/base/providers/index.ts",
-      "src/base/services/index.ts",
-    "src/base/wp-plugins",
-    "src/app/**/*.js"
+    "src/base/wp-plugins"
   ],
   "extension": [
     ".js"
   ],
   "require": [
-    "babel-core/register"
+    "ignore-styles",
+    "babel-register"
   ],
   "reporter": [
     "text",
@@ -26,6 +23,6 @@
     "html"
   ],
   "all": true,
-  "sourceMap": true,
-  "instrument": true
+  "sourceMap": false,
+  "instrument": false
 }

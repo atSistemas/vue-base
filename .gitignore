@@ -7,3 +7,7 @@ yarn-error.log*
 test/unit/coverage
 test/e2e/reports
 selenium-debug.log
+coverage/
+yarn.lock
+package-lock.json
+.nyc_output/
