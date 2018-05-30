@@ -6,10 +6,10 @@ export default {
     'base-button': ButtonComponent
   },
   methods: {
-    clickOperator (operator) {
+    leches2: function (operator) {
       console.log(11111, operator)
     },
-    clickOperation (operation) {
+    serverSelected (operation) {
       console.log(2222, operation)
     }
   }

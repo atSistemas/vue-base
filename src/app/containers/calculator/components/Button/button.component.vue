@@ -1,5 +1,5 @@
 <template>
-  <button class="ButtonCommon"
+  <button @click="leches" class="ButtonCommon"
     :class="{
       'Button': type === 'number',
       'ButtonZero': type === 'zero',

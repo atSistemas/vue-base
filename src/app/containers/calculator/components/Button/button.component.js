@@ -9,9 +9,9 @@ export default {
       type: String,
     },
     methods: {
-      greet () {
+      leches: function () {
         console.log(4444444)
-        this.$emit('clicked')
+        // this.$emit('leches')
       }
     }
   }
