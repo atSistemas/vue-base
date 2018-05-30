@@ -27,17 +27,17 @@
         <base-button
           :type="'number'"
           :value="'7'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'number'"
           :value="'8'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'number'"
           :value="'9'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'operator'"
@@ -49,17 +49,17 @@
         <base-button
           :type="'number'"
           :value="'4'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'number'"
           :value="'5'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'number'"
           :value="'6'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'operator'"
@@ -71,17 +71,17 @@
         <base-button
           :type="'number'"
           :value="'1'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'number'"
           :value="'2'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'number'"
           :value="'3'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'operator'"
@@ -93,7 +93,7 @@
         <base-button
           :type="'zero'"
           :value="'0'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickNumber"
         />
         <base-button
           :type="'number'"
