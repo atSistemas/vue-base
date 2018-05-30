@@ -1,10 +1,11 @@
 <template>
-  <button @click="leches" class="ButtonCommon"
-    :class="{
-      'Button': type === 'number',
-      'ButtonZero': type === 'zero',
-      'ButtonOperate': type === 'operator',
-    }">
+  <button 
+class="ButtonCommon" @click="leches"
+          :class="{
+            'Button': type === 'number',
+            'ButtonZero': type === 'zero',
+            'ButtonOperate': type === 'operator',
+  }">
     {{ value }}
   </button>
 </template>

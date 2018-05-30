@@ -7,12 +7,11 @@ export default {
     },
     value: {
       type: String,
-    },
-    methods: {
-      leches: function () {
-        console.log(4444444)
-        // this.$emit('leches')
-      }
+    }
+  },
+  methods: {
+    leches: function () {
+      this.$emit('buttonClick', {type: this.type, value: this.value})
     }
   }
 }
