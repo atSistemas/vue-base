@@ -1,6 +1,8 @@
 <template>
   <div class="Display">
-      <span class="classDisplay"></span>
+      <span class="classDisplay">
+        {{ value }}
+      </span>
   </div> 
 </template>
 

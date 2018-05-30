@@ -1,4 +1,3 @@
-
 export default {
   name: 'base-button',
   props: {
@@ -10,7 +9,7 @@ export default {
     }
   },
   methods: {
-    leches: function () {
+    clickHandler: function () {
       this.$emit('buttonClick', {type: this.type, value: this.value})
     }
   }

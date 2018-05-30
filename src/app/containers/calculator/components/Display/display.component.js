@@ -1,8 +1,10 @@
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'display',
-  data () {
-    return {
-      title: 'display',
-    }
+  computed: {
+    ...mapGetters([
+      'value',
+    ]),
   }
 }

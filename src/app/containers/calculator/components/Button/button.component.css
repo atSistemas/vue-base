@@ -34,7 +34,6 @@
 }
 
 .ButtonOperate {
-  /*composes: ButtonCommon;*/
   flex-basis: calc(25% - 1px);
   box-sizing: border-box;
   margin: 1px 0 0 1px;
@@ -45,13 +44,11 @@
 }
 
 .ButtonOperateClicked {
-  /*composes: ButtonCommon;*/
   background-color: #fa722e;
   color: #fff;
 }
 
 .ButtonZero {
-  /*composes: ButtonCommon;*/
   flex-grow: 2;
   flex-basis: 50%;
   box-shadow: inset 1px 1px 0 0 #e3e7e9;

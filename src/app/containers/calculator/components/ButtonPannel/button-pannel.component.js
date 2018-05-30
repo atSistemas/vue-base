@@ -6,7 +6,7 @@ export default {
     'base-button': ButtonComponent
   },
   methods: {
-    clickOperator: function (operator) {
+    clickOperator (operator) {
       console.log(11111, operator)
     },
     clickOperation (operation) {

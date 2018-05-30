@@ -5,35 +5,107 @@
         <base-button
           :type="'number'"
           :value="'C'"
-          @buttonClick="onButtonClick"/>
-      <!--
-        <base-button type="number" value="+/-" ></base-button>
-        <base-button type="number" value="%" ></base-button>
-        <base-button type="operator" value="÷"></base-button>
+          @buttonClick="clickOperation"
+        />
+        <base-button
+          :type="'number'"
+          :value="'+/-'"
+          @buttonClick="clickOperation"
+        />
+        <base-button
+          :type="'number'"
+          :value="'%'"
+          @buttonClick="clickOperation"
+        />
+            <base-button
+          :type="'operator'"
+          :value="'÷'"
+          @buttonClick="clickOperation"
+        />
       </div>
       <div class="Row">
-        <base-button type="number" value="7" ></base-button>
-        <base-button type="number" value="8" ></base-button>
-        <base-button type="number" value="9"></base-button>
-        <base-button type="operator" value="x"></base-button>
+        <base-button
+          :type="'number'"
+          :value="'7'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'number'"
+          :value="'8'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'number'"
+          :value="'9'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'operator'"
+          :value="'x'"
+          @buttonClick="clickOperation"
+        />
       </div>
       <div class="Row">
-        <base-button type="number" value="4" ></base-button>
-        <base-button type="number" value="5" ></base-button>
-        <base-button type="number" value="6" ></base-button>
-        <base-button type="operator" value="-" ></base-button>
+        <base-button
+          :type="'number'"
+          :value="'4'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'number'"
+          :value="'5'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'number'"
+          :value="'6'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'operator'"
+          :value="'-'"
+          @buttonClick="clickOperation"
+        />
       </div>
       <div class="Row">
-        <base-button type="number" value="1" ></base-button>
-        <base-button type="number" value="2" ></base-button>
-        <base-button type="number" value="3" ></base-button>
-        <base-button type="operator" value="+" ></base-button>
+        <base-button
+          :type="'number'"
+          :value="'1'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'number'"
+          :value="'2'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'number'"
+          :value="'3'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'operator'"
+          :value="'+'"
+          @buttonClick="clickOperation"
+        />
       </div>
       <div class="Row">
-        <base-button type="zero" value="0" ></base-button>
-        <base-button type="number" value="." ></base-button>
-        <base-button type="operator" value="=" ></base-button>
-      </div> -->
+        <base-button
+          :type="'zero'"
+          :value="'0'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'number'"
+          :value="'.'"
+          @buttonClick="clickOperator"
+        />
+        <base-button
+          :type="'operator'"
+          :value="'='"
+          @buttonClick="clickOperator"
+        />
+      </div>
       </div>
     </div>
   </div>
