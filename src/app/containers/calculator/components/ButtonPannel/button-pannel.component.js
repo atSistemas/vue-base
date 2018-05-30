@@ -5,9 +5,12 @@ export default {
   components: {
     'base-button': ButtonComponent
   },
-  data () {
-    return {
-      title: 'hola',
+  methods: {
+    clickOperator (operator) {
+      console.log(11111, operator)
+    },
+    clickOperation (operation) {
+      console.log(2222, operation)
     }
   }
 }

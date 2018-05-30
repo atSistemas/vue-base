@@ -2,14 +2,17 @@
 export default {
   name: 'base-button',
   props: {
+    type: {
+      type: String
+    },
     value: {
       type: String,
-      default: ''
-    }
-  },
-  data () {
-    return {
-      title: 'hola',
+    },
+    methods: {
+      greet () {
+        console.log(4444444)
+        this.$emit('clicked')
+      }
     }
   }
 }

@@ -2,7 +2,7 @@
 <div class="ButtonPanel">
   <div class="Column">
     <div class="Row">
-      <base-button type="number" value="C" ></base-button>
+      <base-button type="number" value="C"></base-button>
       <base-button type="number" value="+/-" ></base-button>
       <base-button type="number" value="%" ></base-button>
       <base-button type="operator" value="÷"></base-button>
