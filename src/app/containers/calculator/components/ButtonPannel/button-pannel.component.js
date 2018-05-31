@@ -9,7 +9,6 @@ export default {
   },
   methods: {
     clickOperator (operator) {
-      console.log(11111)
       let actionType
       switch (operator.value) {
         case '÷': actionType = ActionTypes.DIVIDE; break
@@ -21,9 +20,8 @@ export default {
       this[ActionTypes.INPUT_OPERATOR](actionType)
     },
     clickOperation (operation) {
-      console.log(22222)
       let actionType
-      switch (operation) {
+      switch (operation.value) {
         case 'C': actionType = ActionTypes.CLEAN; break
         case '+/-': actionType = ActionTypes.CHANGE_SIGN; break
         case '%': actionType = ActionTypes.PERCENT; break

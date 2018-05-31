@@ -20,7 +20,7 @@
             <base-button
           :type="'operator'"
           :value="'÷'"
-          @buttonClick="clickOperation"
+          @buttonClick="clickOperator"
         />
       </div>
       <div class="Row">
@@ -42,7 +42,7 @@
         <base-button
           :type="'operator'"
           :value="'x'"
-          @buttonClick="clickOperation"
+          @buttonClick="clickOperator"
         />
       </div>
       <div class="Row">
@@ -64,7 +64,7 @@
         <base-button
           :type="'operator'"
           :value="'-'"
-          @buttonClick="clickOperation"
+          @buttonClick="clickOperator"
         />
       </div>
       <div class="Row">
@@ -86,7 +86,7 @@
         <base-button
           :type="'operator'"
           :value="'+'"
-          @buttonClick="clickOperation"
+          @buttonClick="clickOperator"
         />
       </div>
       <div class="Row">
@@ -98,7 +98,7 @@
         <base-button
           :type="'number'"
           :value="'.'"
-          @buttonClick="clickOperator"
+          @buttonClick="clickDecimal"
         />
         <base-button
           :type="'operator'"
