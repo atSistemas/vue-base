@@ -1,5 +1,5 @@
-const WeatherActionTypes = {
-  SET_STATION: 'SET_STATION',
-}
+import { createActionType } from 'base'
 
-export default WeatherActionTypes
+export default createActionType([
+  'SET_STATION'
+])

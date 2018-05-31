@@ -1,28 +1,27 @@
-import path from 'path';
-import chalk from 'chalk';
-import webpack from 'webpack';
-import AssetsPlugin from 'assets-webpack-plugin';
-import ProgressBarPlugin from 'progress-bar-webpack-plugin';
-import baseWpPlugins from '../src/base/wp-plugins';
+import path from 'path'
+import chalk from 'chalk'
+import webpack from 'webpack'
+import AssetsPlugin from 'assets-webpack-plugin'
+import ProgressBarPlugin from 'progress-bar-webpack-plugin'
+import baseWpPlugins from '../src/base/wp-plugins'
 
-export const mainPath = path.resolve(__dirname, '..');
-export const context = path.resolve(__dirname, '../');
-export const buildPath = path.resolve(__dirname, '..', 'dist');
-export const basePath = path.resolve(__dirname, '../src/base');
-export const dllPath = path.resolve(__dirname, '../dist/dlls');
-export const clientPath = path.resolve(__dirname, '../src/base/client/');
-export const manifestPath = buildPath;
+export const mainPath = path.resolve(__dirname, '..')
+export const context = path.resolve(__dirname, '../')
+export const buildPath = path.resolve(__dirname, '..', 'dist')
+export const basePath = path.resolve(__dirname, '../src/base')
+export const dllPath = path.resolve(__dirname, '../dist/dlls')
+export const clientPath = path.resolve(__dirname, '../src/base/client/')
+export const manifestPath = buildPath
 
-export const resolvePath = dir => path.join(__dirname, '..', dir);
+export const resolvePath = dir => path.join(__dirname, '..', dir)
 
 export const entry = {
   vendor: [
     'vue',
     'vuex',
-    'immutable',
     'vue-router',
   ],
-};
+}
 
 export const plugins = [
   new ProgressBarPlugin({
@@ -36,7 +35,7 @@ export const plugins = [
     prettyPrint: true
   }),
   new baseWpPlugins.compileInfoPlugin(),
-];
+]
 
 export const module = {
   rules: [
@@ -47,11 +46,7 @@ export const module = {
     {
       test: /\.js$/,
       loader: 'babel-loader',
-      include: [
-        resolvePath('src'),
-      ],
-      exclude: [/node_modules/, /dist/, /assets/],
- 
+      exclude: [/node_modules/],
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -61,7 +56,7 @@ export const module = {
       },
     },
   ]
-};
+}
 
 export const postcss = [
   require('postcss-import')({ addDependencyTo: webpack }),
@@ -69,7 +64,7 @@ export const postcss = [
   require('postcss-nested')(),
   require('postcss-reporter')(),
   require('postcss-url')(),
-];
+]
 
 export const resolve = {
   extensions: ['.js', '.vue', '.json'],
@@ -82,4 +77,4 @@ export const resolve = {
     'containers': path.resolve(__dirname, '../src/app/containers'),
     'components': path.resolve(__dirname, '../src/app/components'),
   }
-};
+}

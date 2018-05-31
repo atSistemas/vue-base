@@ -1,0 +1,115 @@
+<template>
+  <div class="ButtonPanel">
+    <div class="Column">
+      <div class="Row">
+        <base-button
+          :type="'number'"
+          :value="'C'"
+          @buttonClick="clickOperation"
+        />
+        <base-button
+          :type="'number'"
+          :value="'+/-'"
+          @buttonClick="clickOperation"
+        />
+        <base-button
+          :type="'number'"
+          :value="'%'"
+          @buttonClick="clickOperation"
+        />
+            <base-button
+          :type="'operator'"
+          :value="'÷'"
+          @buttonClick="clickOperator"
+        />
+      </div>
+      <div class="Row">
+        <base-button
+          :type="'number'"
+          :value="'7'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'number'"
+          :value="'8'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'number'"
+          :value="'9'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'operator'"
+          :value="'x'"
+          @buttonClick="clickOperator"
+        />
+      </div>
+      <div class="Row">
+        <base-button
+          :type="'number'"
+          :value="'4'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'number'"
+          :value="'5'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'number'"
+          :value="'6'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'operator'"
+          :value="'-'"
+          @buttonClick="clickOperator"
+        />
+      </div>
+      <div class="Row">
+        <base-button
+          :type="'number'"
+          :value="'1'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'number'"
+          :value="'2'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'number'"
+          :value="'3'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'operator'"
+          :value="'+'"
+          @buttonClick="clickOperator"
+        />
+      </div>
+      <div class="Row">
+        <base-button
+          :type="'zero'"
+          :value="'0'"
+          @buttonClick="clickNumber"
+        />
+        <base-button
+          :type="'number'"
+          :value="'.'"
+          @buttonClick="clickDecimal"
+        />
+        <base-button
+          :type="'operator'"
+          :value="'='"
+          @buttonClick="clickOperator"
+        />
+      </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped src="./button-pannel.component.css"></style>
+<script src="./button-pannel.component.js"></script>

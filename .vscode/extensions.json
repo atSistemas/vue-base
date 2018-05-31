@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "octref.vetur",
+        "liuji-jim.vue",
+        "hollowtree.vue-snippets",
+        "dbaeumer.vscode-eslint",
+        "msjsdiag.debugger-for-chrome"
+    ]
+}

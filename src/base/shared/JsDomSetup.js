@@ -1,22 +1,16 @@
-let jsdom = require('jsdom').jsdom
+const { JSDOM } = require('jsdom')
 
-let exposedProperties = ['window', 'navigator', 'document']
+const jsdom = new JSDOM('<!doctype html><html><div id="app"></div><body></body></html>')
 
-global.document = jsdom('')
-global.window = document.defaultView
-Object.keys(document.defaultView).forEach((property) => {
-  if (typeof global[property] === 'undefined') {
-    exposedProperties.push(property)
-    global[property] = document.defaultView[property]
-  }
-})
+const { window } = jsdom
 
+global.window = window
+global.Event = window.Event
+global.document = window.document
+
+global.Element = window.HTMLElement
+global.XMLHttpRequest = window.XMLHttpRequest
+global.Node = window.Node
 global.navigator = {
   userAgent: 'node.js'
 }
-
-process.on('unhandledRejection', () => {
-
-})
-
-export default global

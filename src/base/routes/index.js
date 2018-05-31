@@ -1,29 +1,35 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomeComponent from 'containers/home/components/home-main/home-main.component'
-import CounterComponent from 'containers/counter/components/counter-main/counter-main.component'
-import WeatherComponent from 'containers/weather/components/weather-main/weather-main.component'
+
+const HomeContainer = () => import('containers/home/home.container.vue')
+const CalculatorContainer = () => import('containers/calculator/calculator.container.vue')
+const WeatherContainer = () => import('containers/weather/weather.container.vue')
+const LazyContainer = () => import('containers/lazy/lazy.container.vue')
 
 Vue.use(Router)
 
-const Lazy = () => import('containers/lazy/components/lazy-main/lazy-main.component')
-
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'home',
-      component: HomeComponent,
+      component: HomeContainer,
     },
     {
-      path: '/counter',
-      name: 'counter',
-      component: CounterComponent,
+      path: '/calculator',
+      name: 'calculator-container',
+      component: CalculatorContainer,
     },
     {
       path: '/weather',
       name: 'weather',
-      component: WeatherComponent,
+      component: WeatherContainer,
     },
+    {
+      path: '/lazy',
+      name: 'lazy',
+      component: LazyContainer
+    }
   ],
 })

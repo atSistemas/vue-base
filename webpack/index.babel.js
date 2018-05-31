@@ -1,6 +1,16 @@
-import env from '../src/base/shared/Env';
+import env from '../src/base/shared/Env'
 
-import * as development from './webpack.dev.config';
-import * as production from './webpack.prod.config';
+import * as development from './webpack.dev.config'
+import * as production from './webpack.prod.config'
 
-module.exports = (env === 'development') ? development : production;
+switch (env) {
+  case 'development':
+    module.exports = development
+    break
+  case 'production':
+    module.exports = production
+    break
+
+  default:
+    break
+}
