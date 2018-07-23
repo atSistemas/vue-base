@@ -17,7 +17,7 @@
           :value="'%'"
           @buttonClick="clickOperation"
         />
-            <base-button
+        <base-button
           :type="'operator'"
           :value="'÷'"
           @buttonClick="clickOperator"
@@ -105,7 +105,6 @@
           :value="'='"
           @buttonClick="clickOperator"
         />
-      </div>
       </div>
     </div>
   </div>

@@ -1,9 +1,9 @@
 <template>
   <div class="Display">
-      <span class="classDisplay">
-        {{ value }}
-      </span>
-  </div> 
+    <span class="classDisplay">
+      {{ value }}
+    </span>
+  </div>
 </template>
 
 <style scoped src="./display.component.css"></style>
